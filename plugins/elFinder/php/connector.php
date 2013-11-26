@@ -243,15 +243,16 @@ $opts = array(
 	'roots' => array(
 		array(
 			'driver'     => 'LocalFileSystem',
-			'path'       => '../files/',
-			'startPath'  => '../files/test/',
-			'URL'        => dirname($_SERVER['PHP_SELF']) . '/../files/',
+			'path'       => '../../../images/slides',
+			//'startPath'  => '../files/test/',
+			//'URL'        => dirname($_SERVER['PHP_SELF']) . '/../files/',
 			// 'treeDeep'   => 3,
-			// 'alias'      => 'File system',
+			'alias'      => 'Slides',
 			'mimeDetect' => 'internal',
-			'tmbPath'    => '.tmb',
+			'tmbURL'     => 'images/slides/.tmb',
+			'tmbSize'    => 186,
 			'utf8fix'    => true,
-			'tmbCrop'    => false,
+			'tmbCrop'    => true,
 			'tmbBgColor' => 'transparent',
 			'accessControl' => 'access',
 			'acceptedName'    => '/^[^\.].*$/',
@@ -270,7 +271,7 @@ $opts = array(
 				)
 			)
 			// 'uploadDeny' => array('application', 'text/xml')
-		),
+		)
 		// array(
 		// 	'driver'     => 'LocalFileSystem',
 		// 	'path'       => '../files2/',
@@ -322,14 +323,14 @@ $opts = array(
 		// 		
 		// 	)
 		// ),
-		array(
-			'driver' => 'FTP',
-			'host' => 'work.std42.ru',
-			'user' => 'dio',
-			'pass' => 'wallrus',
-			'path' => '/',
-			'tmpPath' => '../files/ftp',
-		),
+		//array(
+			//'driver' => 'FTP',
+			//'host' => 'work.std42.ru',
+			//'user' => 'dio',
+			//'pass' => 'wallrus',
+			//'path' => '/',
+			//'tmpPath' => '../files/ftp',
+		//),
 		// array(
 		// 	'driver' => 'FTP',
 		// 	'host' => '10.0.1.3',

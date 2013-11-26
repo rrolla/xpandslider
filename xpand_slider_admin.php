@@ -19,118 +19,118 @@
 	
 	### konfigurācija ###
 	
-	define("LA_KAT", "la_katalogs"); // plugin nosaukums
-	define("LA_KAT_DIR", "la_katalogs/"); // plugin dir ar trailing slash
+	define("XPN_SLD", "xpandSlider"); // plugin nosaukums
+	define("XPN_SLD_DIR", "xpandSlider/"); // plugin dir ar trailing slash
+	define("XPN_SLD_IMG_DIR", "images/slides/"); // 
 	
-	define("PLUGIN_PR_DIREKTORIJA", "images/preces/"); // preču bilžu direktorija
-	define("PLUGIN_KAT_DIREKTORIJA", "images/kategorijas/"); // kategoriju bilžu direktorija
-	define("PLUGIN_RAZ_DIREKTORIJA", "images/razotaji/"); // ražotāju bilžu direktorija
+	//define("PLUGIN_PR_DIREKTORIJA", "images/preces/"); // preču bilžu direktorija
+	//define("PLUGIN_KAT_DIREKTORIJA", "images/kategorijas/"); // kategoriju bilžu direktorija
+	//define("PLUGIN_RAZ_DIREKTORIJA", "images/razotaji/"); // ražotāju bilžu direktorija
 
-	define("DB_KATALOGS", "la_kat_preces"); // datubazes nosaukums
-	define("DB_KATEGORIJAS", "la_kat_kategorijas"); // datubazes nosaukums
-	define("DB_RAZOTAJI", "la_kat_razotaji"); // datubazes nosaukums
+	define("DB_SLIDER", "xpand_slider"); // datubazes nosaukums
+	
 	
 	$eplug_admin = true;
-	define('LA_KATALOGS_DEBUG', TRUE);
+	define('XPN_SLD_DEBUG', TRUE);
 
 	//echo PLUGIN_DIR."/bildites";
 
 	### beidzas konfigurācija ###
 
 	require_once("../../class2.php");
-	if(!getperms("P") || !plugInstalled(LA_KAT)){
+	if(!getperms("P") || !plugInstalled(XPN_SLD)){
 		header("location:".e_BASE."index.php");
 		exit() ;
 	}
 
-	include_lan(e_PLUGIN.LA_KAT_DIR.'languages/'.e_LANGUAGE.'/'.e_LANGUAGE.'_admin.php');
-	//include_lan(e_PLUGIN.LA_KAT_DIR.'languages/'.e_LANGUAGE.'/admin_download.php');
+	include_lan(e_PLUGIN.XPN_SLD_DIR.'languages/'.e_LANGUAGE.'/'.e_LANGUAGE.'_admin.php');
+	//include_lan(e_PLUGIN.XPN_SLD_DIR.'languages/'.e_LANGUAGE.'/admin_download.php');
 	//require_once(e_PLUGIN.'download/handlers/adminDownload_class.php');
-	//require_once(e_PLUGIN.LA_KAT_DIR.'handlers/download_class.php');
+	//require_once(e_PLUGIN.XPN_SLD_DIR.'handlers/download_class.php');
 	
-	require_once(e_PLUGIN.LA_KAT_DIR.'controllers/la_katalogs_adm_pre_class.php');
-	require_once(e_PLUGIN.LA_KAT_DIR.'controllers/la_katalogs_adm_kat_class.php');
-	require_once(e_PLUGIN.LA_KAT_DIR.'controllers/la_katalogs_adm_raz_class.php');
-	require_once(e_PLUGIN.LA_KAT_DIR.'controllers/la_katalogs_adm_diag_class.php');
+	require_once(e_PLUGIN.XPN_SLD_DIR.'controllers/xpand_slider_adm_class.php');
+	//require_once(e_PLUGIN.XPN_SLD_DIR.'controllers/la_katalogs_adm_kat_class.php');
+	//require_once(e_PLUGIN.XPN_SLD_DIR.'controllers/la_katalogs_adm_raz_class.php');
+	//require_once(e_PLUGIN.XPN_SLD_DIR.'controllers/la_katalogs_adm_diag_class.php');
 	
-	e107::css(LA_KAT,'datnes/jquery/ui-themes/smoothness/jquery-ui-1.8.18.custom.css');
-	e107::css(LA_KAT,'css/admin.css');
-	e107::css(LA_KAT,'datnes/css/common.css');
-	e107::css(LA_KAT,'datnes/css/dialog.css');
-	e107::css(LA_KAT,'datnes/css/toolbar.css');
-	e107::css(LA_KAT,'datnes/css/navbar.css');
-	e107::css(LA_KAT,'datnes/css/statusbar.css');
-	e107::css(LA_KAT,'datnes/css/contextmenu.css');
-	e107::css(LA_KAT,'datnes/css/cwd.css');
-	e107::css(LA_KAT,'datnes/css/quicklook.css');
-	e107::css(LA_KAT,'datnes/css/commands.css');
-	e107::css(LA_KAT,'datnes/css/theme.css');
+	e107::css(XPN_SLD,'plugins/elFinder/jquery/ui-themes/smoothness/jquery-ui-1.8.18.custom.css');
+	e107::css(XPN_SLD,'css/admin.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/common.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/dialog.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/toolbar.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/navbar.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/statusbar.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/contextmenu.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/cwd.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/quicklook.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/commands.css');
+	e107::css(XPN_SLD,'plugins/elFinder/css/theme.css');
 	
-	e107::js(LA_KAT,'datnes/js/elFinder.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.version.js');
-	e107::js(LA_KAT,'datnes/js/jquery.elfinder.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.resources.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.options.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.history.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.command.js');
-	e107::js(LA_KAT,'datnes/js/elFinder.history.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.version.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/jquery.elfinder.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.resources.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.options.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.history.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.command.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/elFinder.history.js');
 	
-	e107::js(LA_KAT,'datnes/js/ui/overlay.js');
-	e107::js(LA_KAT,'datnes/js/ui/workzone.js');
-	e107::js(LA_KAT,'datnes/js/ui/navbar.js');
-	e107::js(LA_KAT,'datnes/js/ui/dialog.js');
-	e107::js(LA_KAT,'datnes/js/ui/tree.js');
-	e107::js(LA_KAT,'datnes/js/ui/cwd.js');
-	e107::js(LA_KAT,'datnes/js/ui/toolbar.js');
-	e107::js(LA_KAT,'datnes/js/ui/button.js');
-	e107::js(LA_KAT,'datnes/js/ui/uploadButton.js');
-	e107::js(LA_KAT,'datnes/js/ui/viewbutton.js');
-	e107::js(LA_KAT,'datnes/js/ui/searchbutton.js');
-	e107::js(LA_KAT,'datnes/js/ui/sortbutton.js');
-	e107::js(LA_KAT,'datnes/js/ui/panel.js');
-	e107::js(LA_KAT,'datnes/js/ui/contextmenu.js');
-	e107::js(LA_KAT,'datnes/js/ui/path.js');
-	e107::js(LA_KAT,'datnes/js/ui/stat.js');
-	e107::js(LA_KAT,'datnes/js/ui/places.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/overlay.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/workzone.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/navbar.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/dialog.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/tree.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/cwd.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/toolbar.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/button.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/uploadButton.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/viewbutton.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/searchbutton.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/sortbutton.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/panel.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/contextmenu.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/path.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/stat.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/ui/places.js');
 	
-	e107::js(LA_KAT,'datnes/js/commands/back.js');
-	e107::js(LA_KAT,'datnes/js/commands/forward.js');
-	e107::js(LA_KAT,'datnes/js/commands/reload.js');
-	e107::js(LA_KAT,'datnes/js/commands/up.js');
-	e107::js(LA_KAT,'datnes/js/commands/home.js');
-	e107::js(LA_KAT,'datnes/js/commands/copy.js');
-	e107::js(LA_KAT,'datnes/js/commands/cut.js');
-	e107::js(LA_KAT,'datnes/js/commands/paste.js');
-	e107::js(LA_KAT,'datnes/js/commands/open.js');
-	e107::js(LA_KAT,'datnes/js/commands/rm.js');
-	e107::js(LA_KAT,'datnes/js/commands/info.js');
-	e107::js(LA_KAT,'datnes/js/commands/duplicate.js');
-	e107::js(LA_KAT,'datnes/js/commands/rename.js');
-	e107::js(LA_KAT,'datnes/js/commands/help.js');
-	e107::js(LA_KAT,'datnes/js/commands/getfile.js');
-	e107::js(LA_KAT,'datnes/js/commands/mkdir.js');
-	e107::js(LA_KAT,'datnes/js/commands/mkfile.js');
-	e107::js(LA_KAT,'datnes/js/commands/upload.js');
-	e107::js(LA_KAT,'datnes/js/commands/download.js');
-	e107::js(LA_KAT,'datnes/js/commands/edit.js');
-	e107::js(LA_KAT,'datnes/js/commands/quicklook.js');
-	e107::js(LA_KAT,'datnes/js/commands/quicklook.plugins.js');
-	e107::js(LA_KAT,'datnes/js/commands/extract.js');
-	e107::js(LA_KAT,'datnes/js/commands/archive.js');
-	e107::js(LA_KAT,'datnes/js/commands/search.js');
-	e107::js(LA_KAT,'datnes/js/commands/view.js');
-	e107::js(LA_KAT,'datnes/js/commands/resize.js');
-	e107::js(LA_KAT,'datnes/js/commands/sort.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/back.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/forward.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/reload.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/up.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/home.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/copy.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/cut.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/paste.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/open.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/rm.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/info.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/duplicate.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/rename.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/help.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/getfile.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/mkdir.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/mkfile.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/upload.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/download.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/edit.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/quicklook.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/quicklook.plugins.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/extract.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/archive.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/search.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/view.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/resize.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/commands/sort.js');
 	
-	e107::js(LA_KAT,'datnes/js/i18n/elfinder.en.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/i18n/elfinder.en.js');
 	
-	e107::js(LA_KAT,'datnes/js/jquery.dialogelfinder.js');
-	e107::js(LA_KAT,'datnes/js/proxy/elFinderSupportVer1.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/jquery.dialogelfinder.js');
+	e107::js(XPN_SLD,'plugins/elFinder/js/proxy/elFinderSupportVer1.js');
 	
 	
 	e107::js('url','http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js');
 	e107::js('url','http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js');
-	e107::js(LA_KAT,'/js/jquery.seourl.js', 'jquery');	// Load Plugin javascript and include jQuery framework
+	//e107::js(XPN_SLD,'/js/jquery.seourl.js', 'jquery');	// Load Plugin javascript and include jQuery framework
 
 	e107::js('inline', '
 		var arrM = []; // masīvs priekš mazām bildēm
@@ -146,9 +146,16 @@
 		
 		// Savieno visas masīva arrM vērtības un ieliek iekš input vērtības
 		function pievienoMval(arrM){
-			var jver = arrM.join();
-			var merkisM = $("input[id$=\"bilde-m\"]");
+			
+			if(Array.isArray(arrM)){
+				var jver = arrM.join();
+			}else{
+				var jver = arrM;
+			}
+			
+			var merkisM = $("input[id$=\"xpand-slider-imgs\"]");
 			merkisM.val(jver);
+			
 		}
 		
 		// Savieno visas masīva arrL vērtības un ieliek iekš input vērtības
@@ -166,7 +173,7 @@
 			// the null value would be the default value
 			if(!force) force=false;
 			
-			var merkisM = $("input[id$=\"bilde-m\"]");
+			var merkisM = $("input[id$=\"xpand-slider-imgs\"]");
 			
 			if(merkisM.length){
 			
@@ -175,10 +182,12 @@
 				var bildeM = merkisM.val();
 				
 				if(!bildeM){
-					merkisM.val("preces/.tmb/l1_dHVrc3MuanBn1382380393.png");
+					merkisM.val(".tmb/l1_eHBhbmRTbGlkZXItbmEuanBn1385387233.png,l1_eHBhbmRTbGlkZXItbmEuanBn");
 				}
 				
 				var bildeM = merkisM.val();
+				
+				//console.debug(bildeM);
 				
 				if(force){
 					arrM = bildeM.split(",");
@@ -203,7 +212,7 @@
 			// the null value would be the default value
 			if(!force) force=false;
 			
-			var merkisL = $("input[id$=\"bilde-l\"]");
+			var merkisL = $("input[id$=\"xpand-slider-imgs\"]");
 			
 			//console.debug(merkisL.length);
 			
@@ -214,7 +223,7 @@
 				var bildeL = merkisL.val();
 				
 				if(!bildeL){
-					merkisL.val("l1_dHVrc3MuanBn");
+					merkisL.val("l1_eHBhbmRTbGlkZXItbmEuanBn");
 				}
 				
 				var bildeL = merkisL.val();
@@ -236,23 +245,25 @@
 		
 		// funkcija, kas ģenerē bildes no arrM
 		function genMbildes(){
-			var merkisM = $("input[id$=\"bilde-m\"]");
+			var merkisM = $("input[id$=\"xpand-slider-imgs\"]");
 			$("#elfinder").remove();
 			$(".debug").remove();
 			$("<div id=\"elfinder\"></div>").insertAfter(merkisM);
 			arrM = atrMbildes(true);
-			var file = atrLbildes(true);
+			//console.debug(arrM);
+			//var file = atrLbildes(true);
 			
 			if(arrM){
 			
-			$.each(arrM, function(key, val){
-				$("#elfinder").append("<div class=\"bildite\" data-bildite=\""+key+"\"><div class=\"img-opt\"><div class=\"img-del\" title=\"'.LAN_PLUGIN_LA_KAT_PR_DELETE.'\"><i class=\"S16 e-delete-16\"></i></div></div><img src=\"'.e_PLUGIN_ABS.LA_KAT_DIR.'images/"+val+"\" data-hash=\""+file[key]+"\"  width=\"200\" data-toggle=\"tooltip\" title=\"'.LAN_PLUGIN_LA_KAT_PR_HELP_BILDE.'\" /></div>");
+			//$.each(arrM, function(key, val){
+				var key = 0;
+				$("#elfinder").append("<div class=\"bildite\" data-bildite=\""+key+"\"><div class=\"img-opt\"><div class=\"img-del\" title=\"'.LAN_PLUG_XPN_SLD_DELETE.'\"><i class=\"S16 e-delete-16\"></i></div></div><img src=\"'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_IMG_DIR.'"+arrM[0]+"\" data-hash=\""+arrM[1]+"\"  width=\"200\" data-toggle=\"tooltip\" title=\"'.LAN_PLUG_XPN_SLD_HELP_IMGS.'\" /></div>");
 				$("#elfinder");
-			});
+			//});
 			
 			var bildite = $("div.bildite").first();
 			
-			$("<div class=\"bildite-add\" data-bildite=\"add\"><div class=\"img-opt\"><div class=\"img-add btn btn-success\" title=\"'.LAN_PLUGIN_LA_KAT_PR_ADD.'\">'.LAN_PLUGIN_LA_KAT_PR_ADD.'<i class=\"S16 e-add-16\"></i></div></div></div>").insertBefore(bildite);
+			$("<div class=\"bildite-add\" data-bildite=\"add\"><div class=\"img-opt\"><div class=\"img-add btn btn-success\" title=\"'.LAN_PLUG_XPN_SLD_ADD_IMG.'\">'.LAN_PLUG_XPN_SLD_ADD_IMG.' <i class=\"S16 e-add-16\"></i></div></div></div>").insertBefore(bildite);
 			
 			
 			//$("<div class=\"debug\"><button class=\"parM\">kas Masīvā?</button><button class=\"parI\">kas inputā?</button></div>").insertAfter(merkisM);
@@ -266,7 +277,7 @@
 			var bildites = $("#elfinder div.bildite");
 			var bildes = [];
 			bildites.each(function(e){
-				var re = "'.e_PLUGIN_ABS.LA_KAT_DIR.'images/";
+				var re = "'.e_PLUGIN_ABS.XPN_SLD_DIR.'images/";
 				var tmb = $(this).find("img").attr("src");
 				var bilde = tmb.replace(re, "");
 				bildes.push(bilde);
@@ -286,8 +297,9 @@
 		}
 	
 		function pievBildes(files){
-			arrM = atrMbildes(true);
-			arrL = atrLbildes(true);
+			console.log(files);
+			//arrM = atrMbildes(true);
+			//arrL = atrLbildes(true);
 			var bildMidx = $("div.bildite").last().data("bildite");
 			bildMidx++;
 			
@@ -295,25 +307,30 @@
 			//console.log("len: " +len);
 			//console.log( "len: " +bilindex );
 			
-			$.each(files, function(key, val){
+			//$.each(files, function(key, val){
 				//console.log(key);
 				//console.log(files);
-				var file = val.hash;
-				var re = "images/";
-				var tmb = val.tmb;
+				var file = files.hash;
+				var re = "'.XPN_SLD_IMG_DIR.'";
+				var tmb = files.tmb;
 				tmb = tmb.replace(re, "");
 				
-				arrM.splice(bildMidx, 0, tmb);
-				arrL.splice(bildMidx, 0, file);
+				arrM = (tmb+","+file);
+				
+				//var merkisM = $("input[id$=\"xpand-slider-imgs\"]");
+				//merkisM.val(arrM);
+				
+				//arrM.splice(bildMidx, 0, tmb);
+				//arrL.splice(bildMidx, 0, file);
 				
 				pievienoMval(arrM);
-				pievienoLval(arrL);
+				//pievienoLval(arrL);
 				
-				$("#elfinder").append("<div class=\"bildite\" data-bildite=\""+(bildMidx)+"\"><div class=\"img-opt\"><div class=\"img-del\" title=\"'.LAN_PLUGIN_LA_KAT_PR_DELETE.'\"><i class=\"S16 e-delete-16\"></i></div></div><img src=\"'.e_PLUGIN_ABS.LA_KAT_DIR.'images/"+tmb+"\" data-hash=\""+file+"\" width=\"200\"  data-toggle=\"tooltip\" title=\"'.LAN_PLUGIN_LA_KAT_PR_HELP_BILDE.'\" /></div>");
-				$("#elfinder");
+				$("#elfinder").html("<div class=\"bildite\" data-bildite=\""+(bildMidx)+"\"><div class=\"img-opt\"><div class=\"img-del\" title=\"'.LAN_PLUGIN_XPN_SLD_DELETE.'\"><i class=\"S16 e-delete-16\"></i></div></div><img src=\"'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_IMG_DIR.'"+tmb+"\" data-hash=\""+file+"\" width=\"200\"  data-toggle=\"tooltip\" title=\"'.LAN_PLUG_XPN_SLD_HELP_IMGS.'\" /></div>");
+				//$("#elfinder");
 				
 				bildMidx++;
-			});
+			//});
 			
 			sortOn();
 		}
@@ -332,8 +349,8 @@
 		});
 	
 		$(document).on("click", ".parI", function(){
-			var merkisM = $("input[id$=\"bilde-m\"]");
-			var merkisL = $("input[id$=\"bilde-l\"]");
+			var merkisM = $("input[id$=\"xpand-slider-imgs\"]");
+			var merkisL = $("input[id$=\"xpand-slider-imgs\"]");
 			merkisM = merkisM.val();
 			merkisL = merkisL.val();
 			console.log("tmbs input: "+merkisM);
@@ -349,25 +366,25 @@
 				arrM = atrMbildes(true);
 			}
 			
-			if(isEmpty(arrL)){
-				arrL = atrLbildes(true);
-			}
+			//if(isEmpty(arrL)){
+				//arrL = atrLbildes(true);
+			//}
 			
 			var lenM = arrM.length;
-			var lenL = arrL.length;
+			//var lenL = arrL.length;
 			
 			var bildite = $(this).closest("div.bildite");
 			var bildMidx = bildite.data("bildite");
 			
-			console.log("izdzēsu no arrM: " +arrM[bildMidx]);
-			console.log("izdzēsu no arrL: " +arrL[bildMidx]);
+			//console.log("izdzēsu no arrM: " +arrM[bildMidx]);
+			//console.log("izdzēsu no arrL: " +arrL[bildMidx]);
 			
 			//console.log("len: " +len);
 			//console.log( "index: " +bilindex );
 		
 			//var index = $.inArray(bilindex,arrm);
 			
-			if(lenM != 1){
+			/*if(lenM != 1){
 				arrM.splice(bildMidx, 1);
 				arrL.splice(bildMidx, 1);
 				pievienoMval(arrM);
@@ -380,7 +397,11 @@
 				arrL.splice(bildMidx, 1);
 				pievienoLval(arrL);
 				atrLbildes();
-			}
+			}*/
+			
+			arrM = "";
+			pievienoMval(arrM);
+			
 			bildite.fadeOut("fast", function(){
 				$(this).remove();
 				genMbildes();
@@ -401,7 +422,11 @@
 		}
 	
 		$().ready(function(){
-	
+		
+			var upd = $("select[id$=\"xpand-slider-updated\"],input[id$=\"xpand-slider-date\"]");
+			upd.attr("disabled", "disabled").addClass("disabled");
+			
+			$("select[id$=\"xpand-slider-updated\"]").closest("tr").hide();
 			
 			$(".maza-bilde").each(function(e){
 				var text = $(this).text();
@@ -409,12 +434,12 @@
 				arrMa = text.split(",");
 				//console.log(text);
 				$(this).empty();
-				$(this).append("<img src=\"'.e_PLUGIN_ABS.LA_KAT_DIR.'images/"+arrMa[0]+"\">");
+				$(this).append("<img src=\"'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_IMG_DIR.'"+arrMa[0]+"\">");
 			});
 			
 			
-			var bildeM = $("input[id$=\"bilde-m\"]");
-			var bildeL = $("input[id$=\"bilde-l\"]");
+			var bildeM = $("input[id$=\"xpand-slider-imgs\"]");
+			var bildeL = $("input[id$=\"xpand-slider-imgs\"]");
 			
 			bildeM.hide();
 			bildeL.hide();
@@ -435,15 +460,15 @@
 			
 			$("input[id$=\"nosaukums\"]").on("keyup", function(){
 				//$(this).css("border", "1px solid red");
-				$("input[id$=\"alias\"]").val($(this).val().seoURL({"transliterate": true, "lowercase": true}));
-				$(".alias-a").html($(this).val().seoURL({"transliterate": true, "lowercase": true}));
+				//$("input[id$=\"alias\"]").val($(this).val().seoURL({"transliterate": true, "lowercase": true}));
+				//$(".alias-a").html($(this).val().seoURL({"transliterate": true, "lowercase": true}));
 			})
 		
 		});
 	
 	');
 
-	e107::js(LA_KAT, 'js/la-admin-js.js', 'jquery');
+	e107::js(XPN_SLD, 'js/xpn-sld-admin-js.js', 'jquery');
 
 	class plugin_la_katalogs_admin extends e_admin_dispatcher{
 		/**
@@ -455,14 +480,14 @@
 		* @var array
 		*/
 		protected $modes = array(
-			'katalogs'		=> array('controller' => 'plugin_la_katalogs_adm_pre', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_pre_form_ui', 'uipath' => null),
-			'kategorijas'	=> array('controller' => 'plugin_la_katalogs_adm_kat', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_kat_form_ui', 'uipath' => null),
-			'razotaji'		=> array('controller' => 'plugin_la_katalogs_adm_raz', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_raz_form_ui', 'uipath' => null),
-			'diagnostika'	=> array('controller' => 'plugin_la_katalogs_adm_diag', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_diag_form_ui', 'uipath' => null)
+			'slides'		=> array('controller' => 'plugin_xpand_slider_adm', 'path' => null, 'ui' => 'plugin_xpand_slider_adm_form_ui', 'uipath' => null),
+			//'kategorijas'	=> array('controller' => 'plugin_la_katalogs_adm_kat', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_kat_form_ui', 'uipath' => null),
+			//'razotaji'		=> array('controller' => 'plugin_la_katalogs_adm_raz', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_raz_form_ui', 'uipath' => null),
+			//'diagnostika'	=> array('controller' => 'plugin_la_katalogs_adm_diag', 'path' => null, 'ui' => 'plugin_la_katalogs_adm_diag_form_ui', 'uipath' => null)
 		);
 		
 		/* Both are optional */
-		protected $defaultMode = "katalogs";
+		protected $defaultMode = "slides";
 		protected $defaultAction = "list";
 		
 		
@@ -501,27 +526,27 @@
 		
 		protected $adminMenu = array(
 			'other'				=> array('divider'=> true),
-			'other1'				=> array('header'=> "Precēm"),
-			'katalogs/list'			=> array('text'=> LAN_PLUGIN_LA_KAT_SP_ADM_PR_SAR, 'perm' => '0', 'sub' => array( 'sub/first' => array('text'=> "1 sub link", 'perm' => '0'), 'sub/second' =>  array('text'=> "2 sub link", 'perm' => '0') ) ) ,
+			'other1'				=> array('header'=> LAN_PLUG_XPN_SLD_SLIDES),
+			'slides/list'			=> array('text'=> LAN_PLUG_XPN_SLD_LIST, 'perm' => '0', 'sub' => array( 'sub/first' => array('text'=> "1 sub link", 'perm' => '0'), 'sub/second' =>  array('text'=> "2 sub link", 'perm' => '0') ) ) ,
 			
 			
-			'katalogs/create' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_PIEV_PR, 'perm' => '0', 'include' => "data-href='jkljksjgks'"),
+			'slides/create' 		=> array('caption'=> LAN_PLUG_XPN_SLD_CREATE, 'perm' => '0', 'include' => "data-href='jkljksjgks'"),
 			
-			'other2'				=> array('divider'=> true),
-			'other3'				=> array('header'=> "Kategorijām"),
-			'kategorijas/list' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_KAT, 'perm' => '0'),
-			'kategorijas/create' 	=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_PIEV_KAT, 'perm' => '0'),
+			//'other2'				=> array('divider'=> true),
+			//'other3'				=> array('header'=> "Kategorijām"),
+			//'kategorijas/list' 		=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_KAT, 'perm' => '0'),
+			//'kategorijas/create' 	=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_PIEV_KAT, 'perm' => '0'),
 			
-			'other4'				=> array('divider'=> true),
-			'other5'				=> array('header'=> "Ražotājiem"),
-			'razotaji/list' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_RAZ, 'perm' => '0'),
-			'razotaji/create' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_PIEV_RAZ, 'perm' => '0'),
+			//'other4'				=> array('divider'=> true),
+			//'other5'				=> array('header'=> "Ražotājiem"),
+			//'razotaji/list' 		=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_RAZ, 'perm' => '0'),
+			//'razotaji/create' 		=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_PIEV_RAZ, 'perm' => '0'),
 			
-			'other6'				=> array('divider'=> true),
-			'other7'				=> array('header'=> "Katalogam"),
-			'katalogs/prefs' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_IEST, 'perm' => '0'),
-			'diagnostika/parbaude' 		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_DIAG, 'perm' => '0'),
-			//'katalogs/test'		=> array('caption'=> LAN_PLUGIN_LA_KAT_SP_ADM_TESTA, 'perm' => '0')
+			//'other6'				=> array('divider'=> true),
+			'other7'				=> array('header'=> LAN_PLUG_XPN_SLD_PREFS),
+			'slides/prefs' 		=> array('caption'=> LAN_PLUG_XPN_SLD_PREFS, 'perm' => '0'),
+			//'diagnostika/parbaude' 		=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_DIAG, 'perm' => '0'),
+			//'katalogs/test'		=> array('caption'=> LAN_PLUGIN_XPN_SLD_SP_ADM_TESTA, 'perm' => '0')
 		);
 		
 		/**
@@ -531,14 +556,14 @@
 		* @var array
 		*/
 		protected $adminMenuAliases = array(
-			'katalogs/edit'	=> 'katalogs/list'
+			'slides/edits'	=> 'slides/list'
 		);
 		
 		/**
 		* Navigation menu title
 		* @var string
 		*/
-		protected $menuTitle = LAN_PLUGIN_LA_KAT_SP_MENU_NAME;
+		protected $menuTitle = LAN_PLUG_XPN_SLD_MENU_NAME;
 	}
 	
 	

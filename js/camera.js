@@ -1097,7 +1097,7 @@
 		if(!$('.imgLoaded',slide).length){
 			var imgUrl = allImg[slideI];
 			var imgLoaded = new Image();
-			imgLoaded.src = imgUrl +"?"+ new Date().getTime();
+			imgLoaded.src = imgUrl +"&"+ new Date().getTime();
 			slide.css('visibility','hidden');
 			slide.prepend($(imgLoaded).attr('class','imgLoaded').css('visibility','hidden'));
 			var wT, hT;
@@ -1118,7 +1118,7 @@
 			if( allImg.length > (slideI+1) && !$('.imgLoaded',slideNext).length ){
 				var imgUrl2 = allImg[(slideI+1)];
 				var imgLoaded2 = new Image();
-				imgLoaded2.src = imgUrl2 +"?"+ new Date().getTime();
+				imgLoaded2.src = imgUrl2 +"&"+ new Date().getTime();
 				slideNext.prepend($(imgLoaded2).attr('class','imgLoaded').css('visibility','hidden'));
 				imgLoaded2.onload = function() {
 					wT = imgLoaded2.naturalWidth;

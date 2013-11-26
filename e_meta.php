@@ -26,9 +26,9 @@ if (is_readable(THEME."tagwords_css.php"))
 }
 */
 
-$res = '<!-- XpandSlider CSS -->';
-$res .= '<link rel="stylesheet" href="'.e_PLUGIN_ABS.'xpandSlider/css/xpnsld.css" type="text/css" />';
-$res .= '<!-- /XpandSlider CSS -->';
+$res = '<!-- XpandSlider CSS -->'.PHP_EOL;
+$res .= '<link rel="stylesheet" href="'.e_PLUGIN_ABS.'xpandSlider/css/xpnsld.css" type="text/css" />'.PHP_EOL;
+$res .= '<!-- /XpandSlider CSS -->'.PHP_EOL;
 
 echo $res;
 

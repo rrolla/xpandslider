@@ -1,8 +1,8 @@
 <?php
 
-	class plugin_la_katalogs_adm_pre extends e_admin_ui{
+	class plugin_xpand_slider_adm extends e_admin_ui{
 		// required
-		protected $pluginTitle = LAN_PLUGIN_LA_KAT_SP_NAME;
+		protected $pluginTitle = LAN_PLUG_XPN_SLD_NAME;
 
 		/**
 		 * plugin name or 'core'
@@ -13,14 +13,14 @@
 		 *
 		 * @var string
 		 */
-		protected $pluginName = LA_KAT;
+		protected $pluginName = XPN_SLD;
 
 		/**
 		 * DB Table, table alias is supported
 		 * Example: 'r.blank'
 		 * @var string
 		 */
-		protected $table = DB_KATALOGS;
+		protected $table = DB_SLIDER;
 
 		/**
 		 * If present this array will be used to build your list query
@@ -51,7 +51,7 @@
 		//protected $editQry = "SELECT * FROM #blank WHERE blank_id = {ID}";
 
 		// required - if no custom model is set in init() (primary id)
-		protected $pid = "la_kat_pre_id";
+		protected $pid = "xpand_slider_id";
 
 		// optional
 		protected $perPage = 50;
@@ -61,14 +61,14 @@
 		
 		protected $batchCopy = true;
 		
-		protected $listOrder = 'la_kat_pre_order, la_kat_pre_id DESC';
-		protected $sortField = 'la_kat_pre_order';
+		protected $listOrder = 'xpand_slider_order, xpand_slider_id DESC';
+		protected $sortField = 'xpand_slider_order';
 
 		// UNDER CONSTRUCTION
 		protected $displaySettings = array();
 
 		// UNDER CONSTRUCTION
-		protected $disallowPages = array('katalogs/create', 'katalogs/prefs');
+		//protected $disallowPages = array('katalogs/create', 'katalogs/prefs');
 
 		//TODO change the blank_url type back to URL before blank.
 		// required
@@ -204,46 +204,35 @@
 		 
 		protected  $fields = array(
 		'checkboxes' => array('title' => '', 'type' => null, 'data' => null, 'width' =>'5%', 'thclass' => 'center', 'forced' => TRUE, 'class' => 'center', 'toggle' => 'e-multiselect'),
-			'la_kat_pre_id' => array('title' => LAN_ID, 'type' => 'number', 'data' => 'int', 'width' =>'2%', 'thclass' => '', 'class' =>'', 'forced' => TRUE, 'primary' => TRUE),
+			'xpand_slider_id' => array('title' => LAN_PLUG_XPN_SLD_ID, 'type' => 'number', 'data' => 'int', 'width' =>'2%', 'thclass' => '', 'class' =>'', 'forced' => TRUE, 'primary' => TRUE),
 			// 'noedit' => TRUE), Primary ID is not editable
 			
-           	'la_kat_pre_kods' => array('title' => LAN_PLUGIN_LA_KAT_PR_KODS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'help' => LAN_PLUGIN_LA_KAT_PR_HELP_KODS, 'inline' => TRUE, 'forced' => TRUE, 'batch' => TRUE, 'validate' => TRUE),
+           	'xpand_slider_title' => array('title' => LAN_PLUG_XPN_SLD_TITLE, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'help' => LAN_PLUG_XPN_SLD_HELP_TITLE, 'inline' => TRUE, 'forced' => TRUE, 'batch' => TRUE),
 			
-            'la_kat_pre_razotajs' => array('title' => LAN_PLUGIN_LA_KAT_PR_RAZOTAJS, 'type' => 'dropdown', 'data'=> 'int', 'width' => '10%', 'thclass' => '', 'class' => '', 'help' => LAN_PLUGIN_LA_KAT_PR_HELP_RAZOTAJS, 'inline' => TRUE, 'filter'=> TRUE, 'batch' => TRUE),
+            'xpand_slider_content' => array('title' => LAN_PLUG_XPN_SLD_CONTENT, 'type' => 'bbarea', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'readParms' => array('noparse' => 0, 'bb' => 1, 'expand' => 'atvērt editoru')),
 			
-			'la_kat_pre_kategorija' => array('title' => LAN_PLUGIN_LA_KAT_PR_KATEGORIJA, 'type' => 'method', 'width' => '10%', 'thclass' => '', 'class' => '', 'help' => LAN_PLUGIN_LA_KAT_PR_HELP_KATEGORIJA, 'inline' => TRUE, 'filter'=> TRUE, 'batch' => TRUE),
+			'xpand_slider_url' => array('title' => LAN_PLUG_XPN_SLD_URL, 'type' => 'url', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'help' => LAN_PLUG_XPN_SLD_HELP_URL, 'inline' => TRUE, 'forced' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
 			
-			'la_kat_pre_nosaukums' => array('title' => LAN_PLUGIN_LA_KAT_PR_NOSAUKUMS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'help' => LAN_PLUGIN_LA_KAT_PR_HELP_NOSAUKUMS, 'inline' => TRUE, 'forced' => TRUE, 'filter' => TRUE, 'batch' => TRUE, 'validate' => TRUE),
+			'xpand_slider_imgs' => array('title' => LAN_PLUG_XPN_SLD_IMGS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => 'maza-bilde', 'help' => LAN_PLUG_XPN_SLD_HELP_IMGS, 'inline' => TRUE, 'forced' => TRUE, 'filter' => TRUE, 'batch' => TRUE, 'validate' => TRUE),
 			
-			'la_kat_pre_rup_nr' => array('title' => LAN_PLUGIN_LA_KAT_PR_RUPNICAS_NUMURS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'help' => LAN_PLUGIN_LA_KAT_PR_HELP_RUPNICAS_NUMURS, 'inline' => TRUE, 'forced' => TRUE, 'filter' => TRUE, 'batch' => TRUE, 'validate' => TRUE),
+			'xpand_slider_date' => array('title' => LAN_PLUG_XPN_SLD_DATE, 'type' => 'date', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' =>'', 'forced' => TRUE),
 			
-			'la_kat_pre_bilde_m' => array('title' => LAN_PLUGIN_LA_KAT_PR_BILDE_MAZ, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' =>'maza-bilde', 'forced' => TRUE),
+			'xpand_slider_updated' => array('title' => LAN_PLUG_XPN_SLD_DATE, 'type' => 'method', 'width' => 'auto', 'thclass' => '', 'class' => 'disabled'),
 			
-			'la_kat_pre_bilde_l' => array('title' => LAN_PLUGIN_LA_KAT_PR_BILDE, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' =>'bilzuizvele', 'nolist' => TRUE),
+			'xpand_slider_opts' => array('title' => LAN_PLUG_XPN_SLD_OPTS, 'type' => 'method', 'width' => 'auto', 'thclass' => '', 'class' =>'bilzuizvele', 'nolist' => TRUE),
 			
-			'la_kat_pre_apraksts' => array('title' => LAN_PLUGIN_LA_KAT_PR_APRAKSTS, 'type' => 'bbarea', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'readParms' => array('noparse' => 0, 'bb' => 1, 'expand' => 'atvērt editoru')),
+			'xpand_slider_class' => array('title'=> LAN_PLUG_XPN_SLD_VISIBILITY, 'type' => 'userclass', 'data' => 'int',  'width' => 'auto', 'inline' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
 			
-			'la_kat_pre_noliktava' => array('title' => LAN_PLUGIN_LA_KAT_PR_NOLIKTAVA, 'type' => 'dropdown', 'data' => 'boolean', 'width' => '5%', 'thclass' => '', 'class' => '', 'readParms' => array(1 => 'Jā', 0 =>'Nē'), 'writeParms' => array(1 => 'Jā', 0 =>'Nē'), 'inline' => TRUE, 'forced' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
-			
-         	'la_kat_pre_daudzums' => array('title' => LAN_PLUGIN_LA_KAT_PR_DAUDZUMS, 'type' => 'text', 'data' => 'int', 'width' => '5%', 'thclass' => '', 'class' => '', 'inline' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
-			
-			
-			'la_kat_pre_alias' => array('title' => LAN_PLUGIN_LA_KAT_PR_ALIAS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => '', 'note' => LAN_PLUGIN_LA_KAT_PR_HELP_ALIAS,),
-			
-			'la_kat_pre_datums' => array('title' => LAN_PLUGIN_LA_KAT_PR_DATUMS, 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'thclass' => '', 'class' => 'disabled', 'noedit' => TRUE, 'filter' => TRUE),
-			
-			'la_kat_pre_klase' => array('title'=> LAN_VISIBILITY, 'type' => 'userclass', 'data' => 'int',  'width' => 'auto', 'inline' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
-			
-			'la_kat_pre_order' => array('title'=> LAN_PLUGIN_LA_KAT_PR_ORDER, 'type' => 'number', 'width' => 'auto', 'inline' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
+			'xpand_slider_order' => array('title'=> LAN_PLUG_XPN_SLD_ORDER, 'type' => 'number', 'width' => 'auto', 'inline' => TRUE, 'filter' => TRUE, 'batch' => TRUE),
 			
 			/*			
 			'url' => array('title' => LAN_URL, 'type' => 'file', 'data' => 'str', 'width' => '20%', 'thclass' => 'center', 'batch' => TRUE, 'filter'=>TRUE, 'parms' => 'truncate=30', 'validate' => false, 'help' => 'Enter blank URL here', 'error' => 'please, ener valid URL'),
 			*/
-			'options' => array('title'=> LAN_PLUGIN_LA_KAT_SP_OPTIONS, 'type' => null, 'data' => null, 'width' => '10%', 'thclass' => 'center last', 'class' => 'center last', 'forced'=>TRUE)
+			'options' => array('title'=> LAN_PLUG_XPN_SLD_OPTIONS, 'type' => null, 'data' => null, 'width' => '10%', 'thclass' => 'center last', 'class' => 'center last', 'forced'=>TRUE)
 		);
 
 		//required - default column user prefs
-		protected $fieldpref = array('checkboxes', 'la_kat_pre_id', 'la_kat_pre_kods', 'la_kat_pre_nosaukums', 'la_kat_pre_rup_nr', 'la_kat_pre_bilde_m', 'la_kat_pre_noliktava', 'la_kat_pre_daudzums');
+		protected $fieldpref = array('checkboxes', 'xpand_slider_id', 'xpand_slider_title');
 
 		// FORMAT field_name=>type - optional if fields 'data' attribute is set or if custom model is set in init()
 		/*protected $dataFields = array();*/
@@ -254,7 +243,9 @@
 		);*/
 
 		// optional, if $pluginName == 'core', core prefs will be used, else e107::getPluginConfig($pluginName);
+		
 		protected $prefs = array(
+			/*
 			'la_kat_iest_lapa'	   				=> array('title'=> LAN_PLUGIN_LA_KAT_SP_LAPA, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_HELP1),
 			'la_kat_iest_pre_w'	   				=> array('title'=> LAN_PLUGIN_LA_KAT_SP_PRE_W, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_HELP2),
 			'la_kat_iest_pre_h'	   				=> array('title'=> LAN_PLUGIN_LA_KAT_SP_PRE_H, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_HELP3),
@@ -269,15 +260,19 @@
 			'la_kat_iest_load_range'	 		=> array('title'=> LAN_PLUGIN_LA_KAT_SP_CLOAD_RANGE, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_CLOAD_HELP5),
 			'la_kat_iest_load_fps'	 			=> array('title'=> LAN_PLUGIN_LA_KAT_SP_CLOAD_FPS, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_CLOAD_HELP6),
 			'la_kat_iest_load_speed'	 		=> array('title'=> LAN_PLUGIN_LA_KAT_SP_CLOAD_SPEED, 'type'=>'number', 'data' => 'string', 'note' => LAN_PLUGIN_LA_KAT_SP_CLOAD_HELP7),
-			'la_kat_iest_debug' 				=> array('title'=> LAN_PLUGIN_LA_KAT_SP_DEBUG, 'type' => 'bool', 'note' => LAN_PLUGIN_LA_KAT_SP_HELP8),
+			*/
+			'xpn_sld_debug' 				=> array('title'=> LAN_PLUG_XPN_SLD_DEBUG, 'type' => 'bool', 'note' => LAN_PLUG_XPN_SLD_HELP_DEBUG),
 			//'la_kat_iest_3' 				=> array('title'=> 'la_kat_iest_3', 'type' => 'text', 'data' => 'string', 'validate' => 'regex', 'rule' => '#^[\w]+$#i', 'help' => 'allowed characters are a-zA-Z and underscore')
 		);
+		
 
 		// optional
 		public function init(){
+			
 			$sql = e107::getDB(); 	// mysql class object
 			$sql->db_Set_Charset("utf8");
 			
+			/*
 			$razotaji = array();
 			if($sql->db_Select(DB_RAZOTAJI)){
 				//$razotaji[0] = LAN_SELECT;
@@ -290,8 +285,8 @@
 				}
 			}
 	
-			$this->fields['la_kat_pre_razotajs']['writeParms'] 		= $razotaji;	
-			$this->fields['la_kat_pre_razotajs']['readParms'] 		= $razotaji;
+			$this->fields['xpand_slider_razotajs']['writeParms'] 		= $razotaji;	
+			$this->fields['xpand_slider_razotajs']['readParms'] 		= $razotaji;
 			
 			
 			
@@ -306,11 +301,11 @@
 					//$menuCat[$tmpl] = $row['fb_category_title'];
 				}
 			}
-			
+			*/
 			
 	
-			//$this->fields['la_kat_pre_kategorija']['writeParms'] 		= $kategorijas;	
-			//$this->fields['la_kat_pre_kategorija']['readParms'] 		= $kategorijas;
+			//$this->fields['xpand_slider_kategorija']['writeParms'] 		= $kategorijas;	
+			//$this->fields['xpand_slider_kategorija']['readParms'] 		= $kategorijas;
 			
 			//unset($menuCat['unassigned']);
 			
@@ -326,9 +321,98 @@
 		}
 	}
 
-	class plugin_la_katalogs_adm_pre_form_ui extends e_admin_form_ui{
-
-		public function la_kat_pre_kategorija($curVal, $mode){
+	class plugin_xpand_slider_adm_form_ui extends e_admin_form_ui{
+	
+		public function xpand_slider_updated($curVal, $mode){
+		
+			switch($mode){
+				case 'read':
+					//$res = '<input class="disabled" type="text" size="40" name="xpand_slider_updated" id="xpand-slider-updated" value="'.date("Y-m-d H:i:s").'">';
+					//return $res;
+				break;
+			
+				case 'write':
+					//$res = '<input class="disabled" type="text" size="40" name="xpand_slider_updated" id="xpand-slider-updated" value="'.date("Y-m-d H:i:s").'">';
+					//$res = date("Y-m-d H:i:s");
+					
+					 /**
+					* Text-Field Form Element
+					* @param $name
+					* @param $value
+					* @param $maxlength
+					* @param $options
+					*  - size: mini, small, medium, large, xlarge, xxlarge
+					*  - class: 
+					*  - typeahead: 'users' 
+					* 
+					*/
+					//function text($name, $value = '', $maxlength = 80, $options= array())
+					//$res = $this->text('xpand_slider_updated', date("Y-m-d H:i:s"));
+					
+					//$this->fields['xpand_slider_updated'] = array('title' => LAN_PLUG_XPN_SLD_DATE, 'type' => 'method', 'width' => 'auto', 'thclass' => '', 'class' => 'disabled'),
+					$res = $this->select('xpand_slider_updated', array(date("Y-m-d H:i:s") => date("Y-m-d H:i:s")), -1, null, false);
+					return $res;
+				break;
+			
+				case 'filter':
+				
+				break;
+				
+				case 'batch':
+				
+				//return $kategorija->getCategorySelectList();
+				//return array('singleOption' => '<option value="somethig">Title</option>');
+				break;
+			}
+		}
+		
+		public function xpand_slider_opts($curVal, $mode){
+		
+			switch($mode){
+				case 'read':
+					//$res = '<input class="disabled" type="text" size="40" name="xpand_slider_updated" id="xpand-slider-updated" value="'.date("Y-m-d H:i:s").'">';
+					//return $res;
+				break;
+			
+				case 'write':
+					//$res = '<input class="disabled" type="text" size="40" name="xpand_slider_updated" id="xpand-slider-updated" value="'.date("Y-m-d H:i:s").'">';
+					//$res = date("Y-m-d H:i:s");
+					
+					 /**
+					* Text-Field Form Element
+					* @param $name
+					* @param $value
+					* @param $maxlength
+					* @param $options
+					*  - size: mini, small, medium, large, xlarge, xxlarge
+					*  - class: 
+					*  - typeahead: 'users' 
+					* 
+					*/
+					//function text($name, $value = '', $maxlength = 80, $options= array())
+					//$res = $this->text('xpand_slider_updated', date("Y-m-d H:i:s"));
+					
+					//$this->fields['xpand_slider_updated'] = array('title' => LAN_PLUG_XPN_SLD_DATE, 'type' => 'method', 'width' => 'auto', 'thclass' => '', 'class' => 'disabled'),
+					//$res = $this->select('xpand_slider_updated', array(date("Y-m-d H:i:s") => date("Y-m-d H:i:s")), -1, null, false);
+					$res = unserialize($curVal);
+					print_r($res);
+					return $res;
+				break;
+			
+				case 'filter':
+				
+				break;
+				
+				case 'batch':
+				
+				//return $kategorija->getCategorySelectList();
+				//return array('singleOption' => '<option value="somethig">Title</option>');
+				break;
+			}
+		}
+	
+		/*
+		public function xpand_slider_kategorija($curVal, $mode){
 			require_once('la_katalogs_kategorijas_class.php');
 			$kategorija = new la_katalogs_kategorijas;
 			//print_r($kategorija->getCategorySelectList());
@@ -344,26 +428,26 @@
 			
 			case 'write':
 			
-			/**
-			*
-			* @param string $name
-			* @param array $option_array
-			* @param boolean $selected [optional]
-			* @param string|array $options [optional]
-			* @param boolean|string $defaultBlank [optional] set to TRUE if the first entry should be blank, or to a string to use it for the blank description. 
-			* @return string HTML text for display
-			*/
+			
+			#
+			# @param string $name
+			# @param array $option_array
+			# @param boolean $selected [optional]
+			# @param string|array $options [optional]
+			# @param boolean|string $defaultBlank [optional] set to TRUE if the first entry should be blank, or to a string to use it for the blank description. 
+			# @return string HTML text for display
+			#
 			//function select($name, $option_array, $selected = false, $options = array(), $defaultBlank= false)
 			
-				//return $this->select('la_kat_pre_kategorija', '<optgroup><option>...</option></optgroup><optgroup><option>333</option></optgroup>', 1, 'useValues', true );
+				//return $this->select('xpand_slider_kategorija', '<optgroup><option>...</option></optgroup><optgroup><option>333</option></optgroup>', 1, 'useValues', true );
 				
 				//echo $curVal;
 				
-				return $this->select('la_kat_pre_kategorija', $kategorija->getCategorySelectList($curVal), -1, null, true);
+				return $this->select('xpand_slider_kategorija', $kategorija->getCategorySelectList($curVal), -1, null, true);
 				
 				//return e107::getParser()->toHTML($kategorija->getCategorySelectList($curVal), false, 'TITLE');
 				
-				//return $this->select('la_kat_pre_kategorija', array('test this' => array(1 => 'yoo'), 'party' => array(0 => 'test', 1 => 'testing', 'go' => array(0 => 'test', 1 => 'testing'))), $curVal, '', true);
+				//return $this->select('xpand_slider_kategorija', array('test this' => array(1 => 'yoo'), 'party' => array(0 => 'test', 1 => 'testing', 'go' => array(0 => 'test', 1 => 'testing'))), $curVal, '', true);
 				
 			break;
 			
@@ -374,5 +458,6 @@
 			break;
 			}
 		}
+		*/
 	}
 
