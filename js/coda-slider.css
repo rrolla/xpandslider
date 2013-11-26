@@ -1,0 +1,193 @@
+
+/*#portfolio_menu {
+	width: 760px;
+	height: 73px;
+	background-image: url(../icons-nav/gruenweiss.png);
+	
+}*/
+ 
+
+#portfolio_menu #featured {
+	margin-left: 24px;	
+	margin-top: 18px;
+	float: left;
+}
+
+/*#portfolio_menu #menuitem1 {
+	margin-left: 32px;
+}*/
+
+#portfolio_menu .menuitem {
+	float: left;
+	margin-top: 5px;
+	display: block;
+	/*height: 61px;*/
+	cursor: pointer;
+}
+#portfolio_menu{
+	text-align: center;
+}
+#portfolio_menu #navleft {
+	float: left;
+	width: 34px;
+	height: 31px;
+	margin-left: 124px;
+	margin-top: 22px;
+	background-image: url(../images/pmenu_navprev.jpg);
+	cursor: pointer;
+}
+
+#portfolio_menu #navright {
+	float: left;
+	width: 32px;
+	height: 31px;
+	margin-top: 22px;
+	background-image: url(../images/pmenu_navnext.jpg);
+	cursor: pointer;
+}
+
+
+
+
+
+
+#wrapper {
+   /* width: 760px;*/
+    margin: 0 auto;
+    
+}
+
+#intro {
+    padding-bottom: 10px;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 14px;
+    padding: 0;
+}
+slider { width: 760px; position: relative; margin: 0 auto;}
+.titelslider{
+	font-size: 13px;
+	font-weight: bold;
+	width: 200px;
+	text-align: center;
+	white-space: nowrap;
+}
+.scroll { 
+width: 600px; 
+height:100%; 
+overflow: auto; overflow-x: 
+hidden; 
+position: relative; 
+clear: left;
+ margin: 0px auto;
+} 
+
+.scrollContainer div.panel { 
+padding: 20px; 
+width: 600px; 
+float: left; 
+position: relative;
+/*background: #FFFFFF url(images/content_pane-gradient.gif) repeat-y scroll left bottom;*/
+ 
+ } 
+ .forumheader2{
+	font: bold 11px verdana, tahoma, arial, sans-serif;
+}
+/*ul.navigation{ list-style: none; margin: 0 0 24px 0; padding: 0; padding-bottom: 9px; width:640px } 
+ul.navigation li { display: inline;} 
+ul.navigationa { padding: 0 20px 20px 0px; color: #cc99cc; text-decoration: none; text-align:center; float:left; display:block } 
+ul.navigation a:hover { color: #653364; } 
+ul.navigation a.selected { color: #653364; background:url(/images/ui/slideractivetab.gif) bottom left no-repeat; font-weight:bold; } 
+ul.navigation a:focus { outline: none; } 
+.hide { display: none; }*/
+
+/*#orgi   slider {
+    width: 760px;
+    margin: 0 auto;
+    position: relative;
+}*/
+
+/*.scroll {
+    height: 250px;
+    width: 760px;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+    clear: left;
+    background: #FFFFFF url(images/content_pane-gradient.gif) repeat-x scroll left bottom;
+}*/
+
+/*.scrollContainer div.panel {
+    padding: 20px;
+    height: 210px;
+    width: 580px;
+}*/
+
+#shade {
+                                                        padding-top: 0px;
+        }
+
+ul.navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;height: 85px;
+    padding-bottom: 0px;
+	/* background-image: url(../icons-nav/grau.jpg);*/
+	background-repeat: repeat-x;
+	/*width: 760px; */
+	overflow: hidden;
+	max-width: 900px;
+}
+
+ul.navigation li {
+    display: inline;
+   
+}
+
+ul.navigation a {
+  
+    color: #000;
+    text-decoration: none;
+}
+
+ul.navigation a:hover {
+   
+}
+
+ul.navigation a.selected {
+   
+   background-image: url(../icons-nav/1select.png);
+   background-repeat: no-repeat;
+   background-position: bottom;
+	font-size:32px;
+   }
+
+ul.navigation a:focus {
+    outline: none;
+}
+
+.scrollButtons {
+    position: relative;
+    top: -55px;
+    cursor: pointer;
+}
+
+.imageFader {
+
+padding-top:10px;
+
+}
+.scrollButtons.left {
+    
+}
+
+.scrollButtons.right2x {
+   margin-left:694px;
+}
+
+/*.hide {
+    display: none;
+}
+*/
