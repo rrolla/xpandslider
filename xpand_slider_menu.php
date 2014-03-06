@@ -40,14 +40,13 @@
 	}
 	
 	if(!defined('XPN_SLD_INIT')){
-		require_once('controllers/xpand_slider_class.php');
+		//require_once('controllers/xpand_slider_class.php');
 	}
 	
 	
-	$plugin = new plugin_xpand_slider_index_controller();
-	
-	e107::js(XPN_SLD,'js/camera.js','jquery');	// Load Plugin javascript and include jQuery framework
+	//$plugin = new plugin_xpand_slider_index_controller();
 	e107::js(XPN_SLD,'js/jquery.easing.js','jquery');	// Load Plugin javascript and include jQuery framework
+	e107::js(XPN_SLD,'js/camera.js','jquery');	// Load Plugin javascript and include jQuery framework
 	e107::js(XPN_SLD,'js/xpn-sld-js.js','jquery');	// Load Plugin javascript and include jQuery framework
 	
 	/*
@@ -63,12 +62,12 @@
 	
 	*/
 	
-	e107::css(XPN_SLD,'css/style.css');		// load css file
+	//e107::css(XPN_SLD,'css/style.css');		// load css file
 	
-	e107::css(XPN_SLD,'gridster.js/jquery.gridster.css');		// load css file
+	//e107::css(XPN_SLD,'gridster.js/jquery.gridster.css');		// load css file
 	
 	e107::lan(XPN_SLD); 					// load language file ie. e107_plugins/_blank/languages/English.php 
-	e107::meta('keywords','some words');	// add meta data to <HEAD> 
+	//e107::meta('keywords','some words');	// add meta data to <HEAD> 
 	
 	//require_once(HEADERF); 					// render the header (everything before the main content area) 
 	
@@ -128,20 +127,26 @@
 	
 	if($slides = $sql->retrieve(DB_SLIDER, '*', 'xpand_slider_class IN ('.USERCLASS_LIST.') ORDER BY xpand_slider_order ASC', true)){
 		
+		shuffle($slides);
+		
 		$res = '<div class="slider-container"><div class="slides">';
 		
 		foreach($slides as $key => $value){
 			$imgs = explode(',', $value['xpand_slider_imgs']);
+			
+			$url = urlencode('?cmd=file&target=');
+			//$res = '../../thumb.php?src='.e_PLUGIN_ABS.XPN_SLD_DIR.'plugins/elFinder/php/connector.php'.$url.$imgs[1].'&w=500';
+			
 			$res .= '<div class="slide" data-slide="'.$value['xpand_slider_id'].'" data-src="'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_ELFINDER.$imgs[1].'" data-thumb="'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_IMG_DIR.$imgs[0].'"><div class="camera_caption">'.$value['xpand_slider_title'].'</div><div class="fadeIn camera_effected">'.$value['xpand_slider_content'].'</div><img src="'.e_PLUGIN_ABS.XPN_SLD_DIR.XPN_SLD_ELFINDER.$imgs[1].'" data-tmb="'.$imgs[0].'" /></div>';
 		}
 		
-		$res .= '</div></div>';	
+		$res .= '</div></div>';
 		
 		
 		/**
 		* Converts the text (presumably retrieved from the database) for HTML output.
 		*
-		* @param string $text
+		* @param string $html
 		* @param boolean $parseBB [optional]
 		* @param string $modifiers [optional] TITLE|SUMMARY|DESCRIPTION|BODY|RAW|LINKTEXT etc.
 		*                Comma-separated list, no spaces allowed
@@ -152,12 +157,12 @@
 		* @return string
 		* @todo complete the documentation of this essential method
 		*/
-		//public function toHTML($text, $parseBB = FALSE, $modifiers = '', $postID = '', $wrap = FALSE)
+		//public function toHTML($html, $parseBB = FALSE, $modifiers = '', $postID = '', $wrap = FALSE)
 		
-		$text = $tp->toHtml($res, true);
+		$html = $tp->toHtml($res, true);
 	}
 	
-	echo $text
+	echo $html
 	
 	//$ns->tablerender(LAN_PLUG_XPN_SLD_MENU_NAME, $res);
 	
