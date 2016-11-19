@@ -8,7 +8,7 @@
  *
  * Tagwords Meta Handler
  *
- * $Source: /cvs_backup/e107_0.8/e107_plugins/tagwords/e_meta.php,v $
+ * $Source: /e107_plugins/XpandSlider/e_meta.php,v $
  * $Revision$
  * $Date$
  * $Author$
@@ -17,17 +17,9 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-/*
-if (is_readable(THEME."tagwords_css.php"))
-{
-	$src = THEME_ABS."tagwords_css.php";
-	} else {
-	$src = e_PLUGIN_ABS."tagwords/tagwords_css.php";
-}
-*/
-
 $res = '<!-- XpandSlider CSS -->'.PHP_EOL;
 $res .= '<link rel="stylesheet" href="'.e_PLUGIN_ABS.'xpandSlider/css/xpnsld.css" type="text/css" />'.PHP_EOL;
+$res .= '<link rel="stylesheet" href="' . e_WEB_ABS . 'js/camera/css/camera.css" type="text/css" />'.PHP_EOL;
 $res .= '<!-- /XpandSlider CSS -->'.PHP_EOL;
 
 echo $res;
