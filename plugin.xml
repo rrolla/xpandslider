@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Xpand Slider" lan="Xpand Slider" version="1.0" date="2013-11-25" compatibility="2.0" installRequired="true" >
-	<author name="Rolla" url="http://urdt.lv" />
-	<description lan="LAN_PLUGIN_XPN_SLD_SP_DESC">Xpand Slider - ..., pirmā tika radīta 2013-11-25</description>
-	<category>content</category> 
-	<adminLinks>
-		<link url='xpand_slider_admin.php' description='Konfigurēt spraudni' icon='images/xpn_sld_32.png' iconSmall='images/xpn_sld_16.png' primary='true' >LAN_PLUGIN_XPN_SLD_SP_CONF</link>
-		<link url="xpand_slider_admin.php?mode=options" description="LAN_PLUGIN_XPN_SLD_SP_OPT" icon="manage" >LAN_PLUGIN_XPN_SLD_SP_OPT</link>
-	</adminLinks>
-	<siteLinks>
-		<link url="{e_PLUGIN}xpandSlider/" sef="xpndslider" perm='everyone'>LAN_PLUGIN_XPN_SLD_SP_LINK</link>		
-	</siteLinks>
-	<!--
-	<pluginPrefs>
-		<pref name="la_kat_iest_lapa">LAN_PLUGIN_LA_KAT_SP_LAPA</pref>
-		<pref name="la_kat_iest_debug">LAN_PLUGIN_LA_KAT_SP_DEBUG</pref>
-	</pluginPrefs>
-	-->
-	
-	<!--
-	<userClasses>
-		<class name="LA Katalogs" description="Kataloga lietotāja klase" />
-	</userClasses>
-	-->
-	
-	<extendedFields>
-		<field name="custom" type='EUF_TEXTAREA' default='0' active="true" />
-	</extendedFields>		
+<e107Plugin name="xpandslider" lan="xpandSlider" version="1.1" date="2016-11-19" compatibility="2.0" installRequired="true" >
+    <author name="Rolla" url="http://urdt.lv" />
+    <description lan="LAN_PLUGIN_XPN_SLD_SP_DESC">xpandSlider - pirmā tika radīta 2013-11-25</description>
+    <category>content</category>
+    <adminLinks>
+        <link url='xpandslider_admin.php' description='Konfigurēt spraudni' icon='images/xpn_sld_32.png' iconSmall='images/xpn_sld_16.png' primary='true' >LAN_PLUGIN_XPN_SLD_SP_CONF</link>
+        <link url="xpandslider_admin.php?mode=extra" description="LAN_PLUGIN_XPN_SLD_SP_OPT" icon="manage">LAN_PLUGIN_XPN_SLD_SP_OPT</link>
+    </adminLinks>
 </e107Plugin>
