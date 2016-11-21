@@ -54,7 +54,6 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'bbarea',
             'data' => 'str',
             'width' => 'auto',
-            'size' => 'small',
             'thclass' => '',
             'class' => '',
             'parms' => 'rows=20&cols=20',
@@ -69,26 +68,18 @@ class xpandslider_slides extends e_admin_ui {
         ],
         'created' => [
             'title' => LAN_PLUG_XPNSLD_CREATED,
-            'type' => 'text',
-            'data' => 'str',
+            'type' => 'method',
             'width' => 'auto',
-            'thclass' => 'disabled',
-            'class' => 'disabled',
         ],
         'updated' => [
             'title' => LAN_PLUG_XPNSLD_UPDATED,
             'type' => 'method',
             'width' => 'auto',
-            'thclass' => '',
-            'class' => 'disabled'
         ],
         'extra' => [
             'title' => LAN_PLUG_XPNSLD_EXTRA,
             'type' => 'method',
-            //'width' => 'auto',
-            //'thclass' => '',
-            'class' => 'bilzuizvele',
-            //'nolist' => true
+            'width' => 'auto',
         ],
         'visibility' => [
             'title' => LAN_PLUG_XPNSLD_VISIBILITY,
@@ -104,7 +95,6 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'number',
             'width' => 'auto',
             'inline' => true,
-            'filter' => true,
             'batch' => true
         ],
         'options' => [
@@ -188,7 +178,20 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                 return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=300&h=300">';
         }
     }
-    
+
+    public function created($curVal, $mode)
+    {
+        switch ($mode)
+        {
+            case 'read':
+                return $curVal;
+            case 'write':
+                $html .=  $this->text('created', date("Y-m-d H:i:s"), 255, ["id" => "created", "class" => "tbox hide"]);
+
+                return $html;
+        }
+    }
+
     public function updated($curVal, $mode)
     {
         switch ($mode)
@@ -196,7 +199,9 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
             case 'read':
                 return $curVal;
             case 'write':
-                return date("Y-m-d H:i:s");
+                $html .=  $this->text('updated', date("Y-m-d H:i:s"), 255, ["id" => "updated", "class" => "tbox hide"]);
+
+                return $html;
         }
     }
 
