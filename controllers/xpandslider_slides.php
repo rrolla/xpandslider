@@ -3,7 +3,7 @@
 class xpandslider_slides extends e_admin_ui {
 
     // required
-    protected $pluginTitle = XPNSLD_TITLE;
+    protected $plugincaption = XPNSLD_caption;
     protected $pluginName = XPNSLD_NAME;
     protected $table = XPNSLD_DB;
     protected $pid = "id";
@@ -37,14 +37,14 @@ class xpandslider_slides extends e_admin_ui {
             'forced' => true,
             'primary' => true
         ],
-        'title' => [
+        'caption' => [
             'title' => LAN_PLUG_XPNSLD_CAPTION,
             'type' => 'text',
             'data' => 'str',
             'width' => 'auto',
             'thclass' => '',
             'class' => '',
-            'help' => LAN_PLUG_XPNSLD_HELP_TITLE,
+            'help' => LAN_PLUG_XPNSLD_HELP_CAPTION,
             'inline' => true,
             'forced' => true,
             'batch' => true
@@ -54,27 +54,18 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'bbarea',
             'data' => 'str',
             'width' => 'auto',
+            'size' => 'small',
             'thclass' => '',
             'class' => '',
-            'readParms' => [
-                'noparse' => 0,
-                'bb' => 1,
-                'expand' => 'atvērt editoru'
-            ]
+            'parms' => 'rows=20&cols=20',
+            'readParms' => 'expand=...&truncate=50&bb=1',
+            'writeParms'=>'size=small&template=admin',
         ],
         'image' => [
             'title' => LAN_PLUG_XPNSLD_IMAGE,
-            'type' => 'text',
-            'data' => 'str',
+            'type' => 'method',
             'width' => 'auto',
-            'thclass' => '',
-            'class' => 'maza-bilde',
-            'help' => LAN_PLUG_XPNSLD_HELP_IMGS,
-            'inline' => true,
             'forced' => true,
-            'filter' => true,
-            'batch' => true,
-            'validate' => true
         ],
         'created' => [
             'title' => LAN_PLUG_XPNSLD_CREATED,
@@ -83,7 +74,6 @@ class xpandslider_slides extends e_admin_ui {
             'width' => 'auto',
             'thclass' => 'disabled',
             'class' => 'disabled',
-            'forced' => true
         ],
         'updated' => [
             'title' => LAN_PLUG_XPNSLD_UPDATED,
@@ -128,7 +118,7 @@ class xpandslider_slides extends e_admin_ui {
         ]
     ];
     //required - default column user prefs
-    protected $fieldpref = ['checkboxes', 'id', 'title'];
+    protected $fieldpref = ['checkboxes', 'id', 'caption', 'content'];
 
     protected $prefs = [
         'xpnsld_camerarandom' => [
@@ -188,6 +178,17 @@ class xpandslider_slides extends e_admin_ui {
 
 class xpandslider_slides_form_ui extends e_admin_form_ui {
 
+    public function image($curVal, $mode)
+    {
+        switch ($mode)
+        {
+            case 'read':
+                return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=100&h=100">';
+            case 'write':
+                return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=300&h=300">';
+        }
+    }
+    
     public function updated($curVal, $mode)
     {
         switch ($mode)
@@ -238,6 +239,7 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                             dataAttribute = ' . $curVal .  ';
                             dataAttributes.push(dataAttribute);
                          </script>';
+                $html .= $curVal;
 
                 return $html;
             case 'write':

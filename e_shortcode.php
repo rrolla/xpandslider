@@ -46,11 +46,11 @@ class xpandslider_shortcodes extends e_shortcode
         return $tp->replaceConstants($this->var['slide']['id']);
     }
 
-    function sc_xpandslider_title($parm = '')
+    function sc_xpandslider_caption($parm = '')
     {
         $tp = e107::getParser();
 
-        return $tp->replaceConstants($this->var['slide']['title']);
+        return $tp->replaceConstants($this->var['slide']['caption']);
     }
 
     function sc_xpandslider_content($parm = '')

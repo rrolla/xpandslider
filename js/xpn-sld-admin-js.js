@@ -1,6 +1,7 @@
 var dataAttributes = [];
 var dataAttribute = {};
 
+/*
 var arrM = []; // masīvs priekš mazām bildēm
 var arrL = []; // masīvs priekš lielām bildēm
 
@@ -266,7 +267,7 @@ $(document).on("click", "div.img-opt div.img-del", function(){
         pievienoLval(arrL);
         atrLbildes();
     }*/
-
+/*
     arrM = "";
     pievienoMval(arrM);
 
@@ -404,6 +405,7 @@ $(document).on("click", ".img-add", function () {
     });
 
 });
+*/
 
 var easings = ["linear",
 "easeInSine",
@@ -505,7 +507,9 @@ var BrutusinForms = brutusin["json-forms"];
 bf = BrutusinForms.create(dataAttributeOptions);
 
 var container = document.getElementById('form-container');
-bf.render(container);
+if (container) {
+  bf.render(container);
+}
 
 }, 1000);
 

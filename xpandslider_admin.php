@@ -33,7 +33,7 @@ e107::css('core', 'elfinder/css/theme.css');
 
 e107::css('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/css/brutusin-json-forms.min.css');
 e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms.min.js');
-e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms-bootstrap.min.js');
+//e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms-bootstrap.min.js');
 
 e107::js('core', 'elfinder/js/elfinder.min.js');
 e107::js(XPNSLD_NAME, 'js/xpn-sld-admin-js.js', 'jquery');

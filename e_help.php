@@ -22,7 +22,7 @@ if (!defined('e107_INIT'))
 
 $plp = e107::getPref(); // iegūt core iestatījumus
 
-$title = '<div class="xpn-cnt-logo-help">
+$caption = '<div class="xpn-cnt-logo-help">
             <div class="xpn-cnt-logo-help-inner">
               <img src="' . e_PLUGIN_DIR . 'images/xpn_sld_32.png" class="xpnsld-logo-help" title="' . XPNSLD_TITLE . '">
             </div>
