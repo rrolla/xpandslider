@@ -71,6 +71,8 @@ class xpandslider_shortcodes extends e_shortcode
     {
         $tp = e107::getParser();
 
+        //$thumb = e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $this->var['slide']['image'] .'&w=300&h=300';
+
         return $tp->replaceConstants($this->var['slide']['image']);
     }
 
@@ -112,5 +114,19 @@ class xpandslider_shortcodes extends e_shortcode
         $tp = e107::getParser();
 
         return $tp->replaceConstants($captionFx);
+    }
+
+    function sc_xpandslider_cameraoptions()
+    {
+        $xpandSliderPrefs = e107::getPlugPref(XPNSLD_NAME);
+        $cameraOptionsArr = [
+            'width' => $xpandSliderPrefs['xpnsld_camerawidth'],
+            'height' => $xpandSliderPrefs['xpnsld_cameraheight'],
+            'pagination' => $xpandSliderPrefs['xpnsld_camerapagination'],
+            'thumbnails' => $xpandSliderPrefs['xpnsld_camerathumbnails'],
+        ];
+        $tp = e107::getParser();
+
+        return $tp->replaceConstants(json_encode($cameraOptionsArr));
     }
 }

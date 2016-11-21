@@ -7,7 +7,7 @@
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  *
- * e107 Blank Plugin
+ * e107 xpandslider Plugin
  *
  */
 
@@ -19,7 +19,6 @@ if (XPNSLD_DEBUG == true)
     error_reporting(E_ALL | E_STRICT);
 }
 
-e107::js(XPNSLD_NAME, 'js/xpn-sld-js.js', 'jquery');
 e107::lan(XPNSLD_NAME, 'global'); // load language file 107_plugins/xpandslider/languages/English/global.php
 
 $text = e107::getParser()->parseTemplate("{XPANDSLIDER}");

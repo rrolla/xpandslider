@@ -4,7 +4,7 @@
  * e107 website system
  *
  * Copyright (C) 2008-2009 e107 Inc (e107.org)
- * blankd under the terms and conditions of the
+ * xpandsliderd under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  *
  * xpandSlider plugin
@@ -36,7 +36,7 @@ e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-f
 //e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms-bootstrap.min.js');
 
 e107::js('core', 'elfinder/js/elfinder.min.js');
-e107::js(XPNSLD_NAME, 'js/xpn-sld-admin-js.js', 'jquery');
+e107::js(XPNSLD_NAME, 'js/xpnsld-admin-js.js', 'jquery');
 
 new plugin_xpandslider_admin;
 

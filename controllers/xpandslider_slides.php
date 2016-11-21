@@ -111,6 +111,26 @@ class xpandslider_slides extends e_admin_ui {
     protected $fieldpref = ['checkboxes', 'id', 'caption', 'content'];
 
     protected $prefs = [
+        'xpnsld_camerawidth' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERAWIDTH,
+            'type' => 'text',
+            'tab' => 0,
+        ],
+        'xpnsld_cameraheight' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERAHEIGHT,
+            'type' => 'text',
+            'tab' => 0,
+        ],
+        'xpnsld_camerapagination' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERAPAGINATION,
+            'type' => 'boolean',
+            'tab' => 0,
+        ],
+        'xpnsld_camerathumbnails' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERATHUMBNAILS,
+            'type' => 'boolean',
+            'tab' => 0,
+        ],
         'xpnsld_camerarandom' => [
             'title' => LAN_PLUG_XPNSLD_CAMERARANDOM,
             'type' => 'boolean',
@@ -252,10 +272,8 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                             dataAttribute = ' . $curVal .  ';
                             dataAttributes.push(dataAttribute);
                          </script>';
-
-                $html .=  $this->text('extra', $curVal, 255, ["id" => "extra", "class" => "tbox"]);
-
                 $html .= '<div id="form-container"></div>';
+                $html .=  $this->text('extra', $curVal, 255, ["id" => "extra", "class" => "hide"]);
 
                 return $html;
         }

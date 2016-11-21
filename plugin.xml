@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="xpandslider" lan="xpandSlider" version="1.1" date="2016-11-19" compatibility="2.0" installRequired="true" >
-    <author name="Rolla" url="http://urdt.lv" />
-    <description lan="LAN_PLUGIN_XPN_SLD_SP_DESC">xpandSlider - pirmā tika radīta 2013-11-25</description>
+<e107Plugin
+  name="xpandSlider"
+  lan="xpandSlider"
+  version="1.2.1"
+  date="2016-11-19"
+  compatibility="2.0"
+  installRequired="true">
+    <author name="Rolla" url="http://urdt.lv"/>
+    <summary>xpandSlider - Perfect responsive slider for e107</summary>
+    <description lan="LAN_PLUG_XPNSLD_DESC">xpandSlider - pirmā tika radīta 2013-11-25</description>
     <category>content</category>
+    <keywords>
+      <word>slider</word>
+      <word>responsive</word>
+      <word>camera</word>
+    </keywords>
     <adminLinks>
-        <link url='xpandslider_admin.php' description='Konfigurēt spraudni' icon='images/xpn_sld_32.png' iconSmall='images/xpn_sld_16.png' primary='true' >LAN_PLUGIN_XPN_SLD_SP_CONF</link>
-        <link url="xpandslider_admin.php?mode=extra" description="LAN_PLUGIN_XPN_SLD_SP_OPT" icon="manage">LAN_PLUGIN_XPN_SLD_SP_OPT</link>
+      <link
+        url='xpandslider_admin.php'
+        description='Konfigurēt spraudni'
+        icon='images/xpn_sld_32.png'
+        iconSmall='images/xpn_sld_16.png'
+        primary='true'>LAN_PLUG_XPNSLD_CONFIGURE</link>
     </adminLinks>
+    <pluginPrefs>
+      <pref name="xpnsld_camerawidth">100%</pref>
+      <pref name="xpnsld_cameraheight">20%</pref>
+      <pref name="xpnsld_camerapagination">1</pref>
+      <pref name="xpnsld_camerathumbnails">0</pref>
+      <pref name="xpnsld_camerarandom">1</pref>
+      <pref name="xpnsld_cameraskin">4</pref>
+    </pluginPrefs>
 </e107Plugin>

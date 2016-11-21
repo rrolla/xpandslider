@@ -12,4 +12,11 @@ $XPANDSLIDER_TEMPLATE['item'] = '<div
                                   {XPANDSLIDER_CONTENT}
                                 </div>';
 $XPANDSLIDER_TEMPLATE['end'] = '  </div>
-                                </div>';
+                                </div>
+                                <script>
+                                  var cameraOptions = {XPANDSLIDER_CAMERAOPTIONS};
+                                  $(function () {
+                                    $("div.slides").camera(cameraOptions);
+                                  });
+                                </script>
+';

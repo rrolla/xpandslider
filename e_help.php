@@ -1,5 +1,4 @@
 <?php
-
 /*
  * e107 website system
  *
@@ -9,52 +8,56 @@
  *
  *
  *
- * $Source: e107_plugins/xpandContact/e_help.php,v $
+ * $Source: e107_plugins/xpanslider/e_help.php,v $
  * $Revision$
  * $Date$
  * $Author$
  */
 
-if (!defined('e107_INIT'))
-{
+if (!defined('e107_INIT')) {
     exit;
 }
 
-$plp = e107::getPref(); // iegūt core iestatījumus
+require_once("conf.php");
 
-$caption = '<div class="xpn-cnt-logo-help">
-            <div class="xpn-cnt-logo-help-inner">
-              <img src="' . e_PLUGIN_DIR . 'images/xpn_sld_32.png" class="xpnsld-logo-help" title="' . XPNSLD_TITLE . '">
+$e107Config = e107::getPref();
+
+$text = '<div class="xpn-cnt-logo-help">
+            <div class="xpn-cnt-logo-help-inner pull-left">
+              <img
+                src="' . e_PLUGIN_DIR . 'images/xpn_sld_32.png"
+                class="xpnsld-logo-help"
+                title="' . XPNSLD_TITLE . ' v' . $e107Config['plug_installed'][e_CURRENT_PLUGIN] . '">
             </div>
+            <span class="badge badge-info pull-left">
+              v' . $e107Config['plug_installed'][e_CURRENT_PLUGIN] . '
+            </span>
           </div>';
-$text = '<span class="label label-info">
-          ' . XPNSLD_TITLE . '
-         </span>
-         <span class="badge badge-info">
-           v' . $plp['plug_installed'][e_CURRENT_PLUGIN] . '
-         </span>';
 
-$siteurl = e107::getConfig()->getPref('siteurl');
-// PHP Regex to Remove http:// from string That will work for both http:// and https://
-$siteurl = preg_replace('#^https?://#', '', $siteurl);
+// PHP Regex to Remove http:// and https:// from string
+$siteurl = preg_replace('#^https?://#', '', e107::getConfig()->getPref('siteurl'));
 $siteurl = rtrim($siteurl, '/');
 
-//echo '<pre>';
-//print_r( e107::getConfig() );
+$crTitle = XPNSLD_TITLE . ' v' . $e107Config['plug_installed'][e_CURRENT_PLUGIN] . ' ' . LAN_PLUG_XPNSLD_CR_INFO;
 
 $text .= '
 	<div class="footer-content">
-          <img class="footer-img" src="images/help/urdt-cr-logo.png" title="' . XPNSLD_TITLE . ' v' . $plp['plug_installed'][e_CURRENT_PLUGIN] . ' ' . LAN_PLUG_XPNSLD_CR_INFO . '">	
+      <img
+        class="footer-img"
+        src="images/help/urdt-cr-logo.png"
+        title="' . $crTitle . '">
 	  <div class="footer-cr">
 	    <div class="footer-cr-text">
-	      <a href="//projects.urdt.lv/xpandcontact?bannerclient=' . $siteurl . '" target="_blank" title="' . XPNSLD_TITLE . ' v' . $plp['plug_installed'][e_CURRENT_PLUGIN] . ' ' . LAN_PLUG_XPNSLD_CR_INFO . '">
-	        <p>© 2014 <br />Universal Radio DJ Team v4.0</p>
+	      <a
+            href="//projects.urdt.lv/web/' . e_CURRENT_PLUGIN . '?bannerclient=' . $siteurl . '"
+            target="_blank"
+            title="' . $crTitle . '">
+	        <p>© ' . XPNSLD_START_YEAR . ' - ' . XPNSLD_LAST_YEAR . ' ' . XPNSLD_URDT_VERSION . '</p>
 	      </a>
 	    </div>
 	  </div>
 	</div>';
 
-if ($text)
-{
+if ($text) {
     $ns->tablerender($title, $text);
 }
