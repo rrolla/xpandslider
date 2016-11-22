@@ -86,6 +86,7 @@ class xpandslider_shortcodes extends e_shortcode
         $htmlData = '';
         foreach ($dataArray as $attr => $val) {
             $htmlData .= 'data-' . $attr . '="' . $val . '" ';
+            //$htmlData .= 'data-video="hide"';
         }
 
         $tp = e107::getParser();
@@ -124,6 +125,13 @@ class xpandslider_shortcodes extends e_shortcode
             'height' => $xpandSliderPrefs['xpnsld_cameraheight'],
             'pagination' => $xpandSliderPrefs['xpnsld_camerapagination'],
             'thumbnails' => $xpandSliderPrefs['xpnsld_camerathumbnails'],
+            'loader' => 'bar',
+            'navigationHover' => false,
+            'alignment' => 'bottomCenter',
+            'autoAdvance' => true,
+            'imagePath' => e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR,
+            //'hover' => true,
+            //'navigation' => true,
         ];
         $tp = e107::getParser();
 
