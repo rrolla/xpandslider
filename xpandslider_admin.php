@@ -35,6 +35,7 @@ e107::css('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/css/brutusin-json
 e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms.min.js');
 //e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms-bootstrap.min.js');
 
+e107::css(XPNSLD_NAME, 'css/xpnsld.css');
 e107::js('core', 'elfinder/js/elfinder.min.js');
 e107::js(XPNSLD_NAME, 'js/xpnsld-admin-js.js', 'jquery');
 
