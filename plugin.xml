@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Xpand Slider" lan="Xpand Slider" version="1.0" date="2013-11-25" compatibility="2.0" installRequired="true" >
-	<author name="Rolla" url="http://urdt.lv" />
-	<description lan="LAN_PLUGIN_XPN_SLD_SP_DESC">Xpand Slider - ..., pirmā tika radīta 2013-11-25</description>
-	<category>content</category> 
-	<adminLinks>
-		<link url='xpand_slider_admin.php' description='Konfigurēt spraudni' icon='images/xpn_sld_32.png' iconSmall='images/xpn_sld_16.png' primary='true' >LAN_PLUGIN_XPN_SLD_SP_CONF</link>
-		<link url="xpand_slider_admin.php?mode=options" description="LAN_PLUGIN_XPN_SLD_SP_OPT" icon="manage" >LAN_PLUGIN_XPN_SLD_SP_OPT</link>
-	</adminLinks>
-	<siteLinks>
-		<link url="{e_PLUGIN}xpandSlider/" sef="xpndslider" perm='everyone'>LAN_PLUGIN_XPN_SLD_SP_LINK</link>		
-	</siteLinks>
-	<!--
-	<pluginPrefs>
-		<pref name="la_kat_iest_lapa">LAN_PLUGIN_LA_KAT_SP_LAPA</pref>
-		<pref name="la_kat_iest_debug">LAN_PLUGIN_LA_KAT_SP_DEBUG</pref>
-	</pluginPrefs>
-	-->
-	
-	<!--
-	<userClasses>
-		<class name="LA Katalogs" description="Kataloga lietotāja klase" />
-	</userClasses>
-	-->
-	
-	<extendedFields>
-		<field name="custom" type='EUF_TEXTAREA' default='0' active="true" />
-	</extendedFields>		
+<e107Plugin
+  name="xpandSlider"
+  lan="xpandSlider"
+  version="1.2.3"
+  date="2016-11-27"
+  compatibility="2.0"
+  installRequired="true">
+    <author name="Rolla" url="http://urdt.lv"/>
+    <summary>Perfect responsive slider for e107 CMS</summary>
+    <description lan="LAN_PLUG_XPNSLD_DESC">Perfect responsive image, HTML slider for e107 CMS</description>
+    <category>content</category>
+    <keywords>
+      <word>slider</word>
+      <word>html</word>
+      <word>video</word>
+      <word>responsive</word>
+      <word>camera</word>
+    </keywords>
+    <adminLinks>
+      <link
+        url='xpandslider_admin.php'
+        description='Konfigurēt spraudni'
+        icon='images/xpn_sld_32.png'
+        iconSmall='images/xpn_sld_16.png'
+        primary='true'>LAN_PLUG_XPNSLD_CONFIGURE</link>
+    </adminLinks>
+    <pluginPrefs>
+      <pref name="xpnsld_camerawidth">100%</pref>
+      <pref name="xpnsld_cameraheight">20%</pref>
+      <pref name="xpnsld_cameraautoplay">true</pref>
+      <pref name="xpnsld_cameraloader">bar</pref>
+      <pref name="xpnsld_camerapagination">1</pref>
+      <pref name="xpnsld_camerathumbnails">0</pref>
+      <pref name="xpnsld_camerarandom">1</pref>
+      <pref name="xpnsld_cameraskin">4</pref>
+    </pluginPrefs>
 </e107Plugin>
