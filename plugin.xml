@@ -7,11 +7,13 @@
   compatibility="2.0"
   installRequired="true">
     <author name="Rolla" url="http://urdt.lv"/>
-    <summary>xpandSlider - Perfect responsive slider for e107</summary>
-    <description lan="LAN_PLUG_XPNSLD_DESC">xpandSlider - pirmā tika radīta 2013-11-25</description>
+    <summary>Perfect responsive slider for e107 CMS</summary>
+    <description lan="LAN_PLUG_XPNSLD_DESC">Perfect responsive image, HTML slider for e107 CMS</description>
     <category>content</category>
     <keywords>
       <word>slider</word>
+      <word>html</word>
+      <word>video</word>
       <word>responsive</word>
       <word>camera</word>
     </keywords>
@@ -26,6 +28,7 @@
     <pluginPrefs>
       <pref name="xpnsld_camerawidth">100%</pref>
       <pref name="xpnsld_cameraheight">20%</pref>
+      <pref name="xpnsld_cameraloader">bar</pref>
       <pref name="xpnsld_camerapagination">1</pref>
       <pref name="xpnsld_camerathumbnails">0</pref>
       <pref name="xpnsld_camerarandom">1</pref>

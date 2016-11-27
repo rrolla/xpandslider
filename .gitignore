@@ -214,3 +214,8 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /nbproject/private/
+images/slides/*
+!images/slides/demo/
+!images/blank.gif
+!images/slides/xpandSlider-min-na.png
+!images/slides/xpandSlider-na.jpg

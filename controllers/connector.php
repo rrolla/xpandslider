@@ -3,6 +3,7 @@
 error_reporting(E_ALL); // Set E_ALL for debuging
 // elFinder autoload
 
+require_once("../conf.php");
 require dirname(dirname(dirname(__DIR__))) . '/e107_web/js/elfinder/php/autoload.php';
 // ===============================================
 
@@ -23,36 +24,42 @@ function access($attr, $path, $data, $volume)
 
 $opts = [
     'locale' => 'en_US.UTF-8',
-    'debug' => true,
+    'debug' => XPNSLD_DEBUG,
     'roots' => [
         [
             'driver' => 'LocalFileSystem',
-            'path' => '../images/slides',
+            'path' => '../'. XPNSLD_IMG_DIR,
             //'startPath'  => '../files/test/',
-            //'URL'        => dirname($_SERVER['PHP_SELF']) . '/../files/',
+            'URL' => './',
             // 'treeDeep'   => 3,
             'alias' => 'Slides',
             'mimeDetect' => 'internal',
-            'tmbURL' => 'images/slides/.tmb',
-            'tmbSize' => 186,
+            'tmbURL' => XPNSLD_IMG_DIR . '.tmb',
+            'tmbSize' => 300,
             'utf8fix' => true,
             'tmbCrop' => true,
             'tmbBgColor' => 'transparent',
             'accessControl' => 'access',
             'acceptedName' => '/^[^\.].*$/',
-            // 'disabled' => array('extract', 'archive'),
-            // 'tmbSize' => 128,
+            'disabled' => [
+                'extract',
+                'archive',
+                'mkfile',
+                'netmount',
+                'netunmount',
+                'open',
+                'opendir',
+                'edit',
+                'resize',
+            ],
             'attributes' => [
                 [
-                    'pattern' => '/\.js$/',
+                    'pattern' => '/(demo|xpandSlider-min-na.png|xpandSlider-na.jpg|blank.gif)/',
                     'read' => true,
-                    'write' => false
-                ],
-                [
-                    'pattern' => '/^\/icons$/',
-                    'read' => true,
-                    'write' => false
-                ]
+                    'write' => false,
+                    'hidden' => false,
+                    'locked' => true
+		],
             ]
         // 'uploadDeny' => array('application', 'text/xml')
         ]

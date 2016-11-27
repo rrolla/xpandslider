@@ -26,6 +26,7 @@ define("LAN_PLUG_XPNSLD_PREF", "General");
 define("LAN_PLUG_XPNSLD_DEBUG", "Debug");
 define("LAN_PLUG_XPNSLD_CAMERAWIDTH", "Width");
 define("LAN_PLUG_XPNSLD_CAMERAHEIGHT", "Height");
+define("LAN_PLUG_XPNSLD_CAMERALOADER", "Loader type");
 define("LAN_PLUG_XPNSLD_CAMERAPAGINATION", "Pagination");
 define("LAN_PLUG_XPNSLD_CAMERATHUMBNAILS", "Thumbnails");
 define("LAN_PLUG_XPNSLD_CAMERARANDOM", "Random order?");

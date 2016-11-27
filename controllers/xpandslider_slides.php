@@ -3,7 +3,7 @@
 class xpandslider_slides extends e_admin_ui {
 
     // required
-    protected $plugincaption = XPNSLD_caption;
+    protected $pluginTitle = XPNSLD_TITLE;
     protected $pluginName = XPNSLD_NAME;
     protected $table = XPNSLD_DB;
     protected $pid = "id";
@@ -121,6 +121,11 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'text',
             'tab' => 0,
         ],
+        'xpnsld_cameraloader' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERALOADER,
+            'type' => 'method',
+            'tab' => 0,
+        ],
         'xpnsld_camerapagination' => [
             'title' => LAN_PLUG_XPNSLD_CAMERAPAGINATION,
             'type' => 'boolean',
@@ -172,16 +177,6 @@ class xpandslider_slides extends e_admin_ui {
         print_r($old_data);
         print_r($new_data);
         exit;
-
-        if(is_numeric($new_data['comment_author_name']) && !empty($new_data['comment_author_name']))
-        {
-            $userData = e107::user($new_data['comment_author_name']);
-            $new_data['comment_author_id'] = $new_data['comment_author_name'];
-            $new_data['comment_author_name'] = $userData['user_name'];
-        }
-
-        return $new_data;
-         *
          */
     }
 }
@@ -193,9 +188,18 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
         switch ($mode)
         {
             case 'read':
-                return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=100&h=100">';
+                return '<a href="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'" data-gal="prettyPhoto[xpandSlider]"><img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=100&h=100" class="zoom-image" data-path="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'"></a>';
             case 'write':
-                return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=300&h=300">';
+                return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=300&h=300" class="choose-image">
+                <div id="elfinder"></div>
+                <input name="image" class="choosed-image hide">
+                <script>
+                var thumbPhpPath = "' . e_BASE . 'thumb.php";
+                var xpandSliderImagespath = "' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . '";
+                var elFinderConnectorPath = "' . e_PLUGIN_ABS . XPNSLD_DIR .'controllers/connector.php";
+                var xpandSliderDebug = ' . XPNSLD_DEBUG .';
+
+                </script>';
         }
     }
 
@@ -276,6 +280,17 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                 $html .=  $this->text('extra', $curVal, 255, ["id" => "extra", "class" => "hide"]);
 
                 return $html;
+        }
+    }
+
+    public function xpnsld_cameraloader($curVal, $mode)
+    {
+        switch ($mode)
+        {
+            case 'read':
+
+            case 'write':
+                return $this->select('xpnsld_cameraloader', ['bar' => 'bar', 'pie' => 'pie'], $curVal);
         }
     }
 

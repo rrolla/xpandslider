@@ -508,7 +508,7 @@ setTimeout(function () {
 
     var container = document.getElementById('form-container');
     if (container) {
-        bf.render(container);
+        bf.render(container, dataAttribute);
     }
 
 }, 1000);
@@ -544,5 +544,34 @@ $(function () {
     //use fadeTo to hide the div
     $(this).children(".footer-cr").stop().fadeTo(500, 0);
     $(this).children(".footer-img").stop().fadeTo(500, 1);
+  });
+});
+
+var elfinder = {};
+$(function () {
+  $('.choose-image').click(function() {
+    var elfinder = $('<div/>').dialogelfinder({
+      debug: xpandSliderDebug,
+      url : elFinderConnectorPath,
+      lang : 'en',
+      destroyOnClose : true,
+      handlers : {
+        dblclick : function(event, elfinderInstance) {
+          event.preventDefault();
+          elfinderInstance.exec('getfile')
+          .done(function() { elfinderInstance.exec('quicklook'); })
+          .fail(function() { elfinderInstance.exec('open'); });
+        }
+      },
+      getFileCallback : function(files, fm) {
+        $('.choose-image').attr('src', thumbPhpPath + '?w=300&h=300&src=' + xpandSliderImagespath + files.url);
+        $('.choosed-image').attr('value', files.url);
+      },
+      commandsOptions : {
+        getfile : {
+          oncomplete : 'close',
+        }
+      }
+    }).dialogelfinder('instance');
   });
 });

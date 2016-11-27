@@ -13,6 +13,17 @@
 
 require_once("conf.php");
 
+if (!defined('e107_INIT'))
+{
+    require_once("../../class2.php");
+}
+
+$xpandSliderPrefs = e107::getPlugPref(XPNSLD_NAME); // get plugin prefs
+
+if (!defined('XPNSLD_DEBUG')) {
+    define('XPNSLD_DEBUG', $xpandSliderPrefs['xpnsld_debug']);
+}
+
 if (XPNSLD_DEBUG == true)
 {
     ini_set('display_errors', 'On');

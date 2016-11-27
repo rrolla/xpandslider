@@ -26,6 +26,7 @@ define("LAN_PLUG_XPNSLD_PREF", "Galvenie");
 define("LAN_PLUG_XPNSLD_DEBUG", "Atkļūdošana");
 define("LAN_PLUG_XPNSLD_CAMERAWIDTH", "Platums");
 define("LAN_PLUG_XPNSLD_CAMERAHEIGHT", "Augstums");
+define("LAN_PLUG_XPNSLD_CAMERALOADER", "Izteces lādētāja tips");
 define("LAN_PLUG_XPNSLD_CAMERAPAGINATION", "Ātrā navigācija");
 define("LAN_PLUG_XPNSLD_CAMERATHUMBNAILS", "Mazbildes");
 define("LAN_PLUG_XPNSLD_CAMERARANDOM", "Sajauktā secībā?");

@@ -125,7 +125,7 @@ class xpandslider_shortcodes extends e_shortcode
             'height' => $xpandSliderPrefs['xpnsld_cameraheight'],
             'pagination' => $xpandSliderPrefs['xpnsld_camerapagination'],
             'thumbnails' => $xpandSliderPrefs['xpnsld_camerathumbnails'],
-            'loader' => 'bar',
+            'loader' => $xpandSliderPrefs['xpnsld_cameraloader'],
             'navigationHover' => false,
             'alignment' => 'bottomCenter',
             'autoAdvance' => true,

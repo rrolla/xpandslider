@@ -13,6 +13,17 @@
 
 require_once("conf.php");
 
+if (!defined('e107_INIT'))
+{
+    require_once("../../class2.php");
+}
+
+$xpandSliderPrefs = e107::getPlugPref(XPNSLD_NAME); // get plugin prefs
+
+if (!defined('XPNSLD_DEBUG')) {
+    define('XPNSLD_DEBUG', $xpandSliderPrefs['xpnsld_debug']);
+}
+
 class xpandslider_setup {
 
     function install_pre($var)
@@ -31,7 +42,7 @@ class xpandslider_setup {
 
         $xpndSldExtra = [
             0 => ["captionFx" => "fadeFromRight"],
-            1 => ["captionFx" => "fadeIn"],
+            1 => ["link" => "//facebook.com/djbeatermusic", "target" => "_blank"],
             2 => ["captionFx" => "moveFromBottom"],
             3 => ["captionFx" => "fadeFromTop"],
         ];
@@ -48,8 +59,8 @@ class xpandslider_setup {
                 'position' => 1
             ],
             1 => [
-                'caption' => 'xpandSlider Caption 2!',
-                'content' => '<b>Xpand Slider 2 HTML content!</b>',
+                'caption' => 'xpandSlider can handle also videos!',
+                'content' => '[html]<p><iframe width="100%" height="100%" src="https://www.youtube.com/embed/11Qbbipv8dE" frameborder="0"></iframe></p>[/html]',
                 'image' => 'demo/2.jpg',
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => date('Y-m-d H:i:s'),
