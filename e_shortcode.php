@@ -57,7 +57,7 @@ class xpandslider_shortcodes extends e_shortcode
     {
         $tp = e107::getParser();
 
-        return $tp->toHTML($this->var['slide']['content'], true, 'BODY');
+        return $tp->toHTML($this->var['slide']['content'], true);
     }
 
     function sc_xpandslider_image($parm = '')
@@ -71,9 +71,9 @@ class xpandslider_shortcodes extends e_shortcode
     {
         $tp = e107::getParser();
 
-        //$thumb = e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $this->var['slide']['image'] .'&w=300&h=300';
+        $thumb = e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $this->var['slide']['image'] .'&w=300&h=300';
 
-        return $tp->replaceConstants($this->var['slide']['image']);
+        return $tp->replaceConstants($thumb);
     }
 
     function sc_xpandslider_data($parm = '')
@@ -128,7 +128,7 @@ class xpandslider_shortcodes extends e_shortcode
             'loader' => $xpandSliderPrefs['xpnsld_cameraloader'],
             'navigationHover' => false,
             'alignment' => 'bottomCenter',
-            'autoAdvance' => true,
+            'autoAdvance' => $xpandSliderPrefs['xpnsld_cameraautoplay'],
             'imagePath' => e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR,
             //'hover' => true,
             //'navigation' => true,

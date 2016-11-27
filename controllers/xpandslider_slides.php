@@ -44,7 +44,7 @@ class xpandslider_slides extends e_admin_ui {
             'width' => 'auto',
             'thclass' => '',
             'class' => '',
-            'help' => LAN_PLUG_XPNSLD_HELP_CAPTION,
+            'writeParms'=>'size=xxlarge',
             'inline' => true,
             'forced' => true,
             'batch' => true
@@ -59,6 +59,7 @@ class xpandslider_slides extends e_admin_ui {
             'parms' => 'rows=20&cols=20',
             'readParms' => 'expand=...&truncate=50&bb=1',
             'writeParms'=>'size=small&template=admin',
+            'help' => LAN_PLUG_XPNSLD_SEE_MORE . ' <a href="http://www.pixedelic.com/plugins/camera/" target="_blank">pixedelic.com/plugins/camera</a> ' . LAN_PLUG_XPNSLD_CONTENT_TEMPLATES,
         ],
         'image' => [
             'title' => LAN_PLUG_XPNSLD_IMAGE,
@@ -121,6 +122,11 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'text',
             'tab' => 0,
         ],
+        'xpnsld_cameraautoplay' => [
+            'title' => LAN_PLUG_XPNSLD_CAMERAAUTOPLAY,
+            'type' => 'boolean',
+            'tab' => 0,
+        ],
         'xpnsld_cameraloader' => [
             'title' => LAN_PLUG_XPNSLD_CAMERALOADER,
             'type' => 'method',
@@ -131,11 +137,14 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'boolean',
             'tab' => 0,
         ],
+        /*
         'xpnsld_camerathumbnails' => [
             'title' => LAN_PLUG_XPNSLD_CAMERATHUMBNAILS,
             'type' => 'boolean',
             'tab' => 0,
         ],
+         * 
+         */
         'xpnsld_camerarandom' => [
             'title' => LAN_PLUG_XPNSLD_CAMERARANDOM,
             'type' => 'boolean',
@@ -190,14 +199,15 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
             case 'read':
                 return '<a href="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'" data-gal="prettyPhoto[xpandSlider]"><img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=100&h=100" class="zoom-image" data-path="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'"></a>';
             case 'write':
+                $debug = XPNSLD_DEBUG ? 'true' : 'false';
                 return '<img src="' . e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $curVal .'&w=300&h=300" class="choose-image">
                 <div id="elfinder"></div>
-                <input name="image" class="choosed-image hide">
+                <input name="image" value="'. $curVal .'" class="choosed-image hide">
                 <script>
                 var thumbPhpPath = "' . e_BASE . 'thumb.php";
                 var xpandSliderImagespath = "' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . '";
                 var elFinderConnectorPath = "' . e_PLUGIN_ABS . XPNSLD_DIR .'controllers/connector.php";
-                var xpandSliderDebug = ' . XPNSLD_DEBUG .';
+                var xpandSliderDebug = ' . $debug . ';
 
                 </script>';
         }
@@ -208,9 +218,19 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
         switch ($mode)
         {
             case 'read':
-                return $curVal;
+                $e107Date = e107::getDate();
+                $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
+
+                return '<span title="' . $curVal .'">' . $ago . '</span>';
             case 'write':
-                $html .=  $this->text('created', date("Y-m-d H:i:s"), 255, ["id" => "created", "class" => "tbox hide"]);
+                $html .=  $this->text('created', $curVal ? $curVal : date("Y-m-d H:i:s"), 255, ["id" => "created", "class" => "tbox hide"]);
+                
+                if ($curVal) {
+                    $e107Date = e107::getDate();
+                    $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
+                
+                    $html .= '<span title="' . $curVal .'">' . $ago . '</span>';
+                }
 
                 return $html;
         }
@@ -221,9 +241,19 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
         switch ($mode)
         {
             case 'read':
-                return $curVal;
+                $e107Date = e107::getDate();
+                $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
+
+                return '<span title="' . $curVal .'">' . $ago . '</span>';
             case 'write':
                 $html .=  $this->text('updated', date("Y-m-d H:i:s"), 255, ["id" => "updated", "class" => "tbox hide"]);
+                
+                if ($curVal) {
+                    $e107Date = e107::getDate();
+                    $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
+                
+                    $html .= '<span title="' . $curVal .'">' . $ago . '</span>';
+                }
 
                 return $html;
         }

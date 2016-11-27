@@ -6,7 +6,6 @@ $XPANDSLIDER_TEMPLATE['item'] = '<div
                                   class="slide"
                                   data-slide="{XPANDSLIDER_ID}"
                                   data-src="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . '{XPANDSLIDER_IMAGE}"
-                                  data-thumb="' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR .'{XPANDSLIDER_THUMB}"
                                   {XPANDSLIDER_DATA}>
                                   <div class="{XPANDSLIDER_CAPTIONFX} camera_caption">{XPANDSLIDER_CAPTION}</div>
                                   {XPANDSLIDER_CONTENT}

@@ -2,8 +2,8 @@
 <e107Plugin
   name="xpandSlider"
   lan="xpandSlider"
-  version="1.2.1"
-  date="2016-11-19"
+  version="1.2.3"
+  date="2016-11-27"
   compatibility="2.0"
   installRequired="true">
     <author name="Rolla" url="http://urdt.lv"/>
@@ -28,6 +28,7 @@
     <pluginPrefs>
       <pref name="xpnsld_camerawidth">100%</pref>
       <pref name="xpnsld_cameraheight">20%</pref>
+      <pref name="xpnsld_cameraautoplay">true</pref>
       <pref name="xpnsld_cameraloader">bar</pref>
       <pref name="xpnsld_camerapagination">1</pref>
       <pref name="xpnsld_camerathumbnails">0</pref>

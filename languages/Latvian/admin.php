@@ -26,6 +26,7 @@ define("LAN_PLUG_XPNSLD_PREF", "Galvenie");
 define("LAN_PLUG_XPNSLD_DEBUG", "Atkļūdošana");
 define("LAN_PLUG_XPNSLD_CAMERAWIDTH", "Platums");
 define("LAN_PLUG_XPNSLD_CAMERAHEIGHT", "Augstums");
+define("LAN_PLUG_XPNSLD_CAMERAAUTOPLAY", "Automātiski slaidrāde");
 define("LAN_PLUG_XPNSLD_CAMERALOADER", "Izteces lādētāja tips");
 define("LAN_PLUG_XPNSLD_CAMERAPAGINATION", "Ātrā navigācija");
 define("LAN_PLUG_XPNSLD_CAMERATHUMBNAILS", "Mazbildes");
@@ -33,3 +34,6 @@ define("LAN_PLUG_XPNSLD_CAMERARANDOM", "Sajauktā secībā?");
 define("LAN_PLUG_XPNSLD_CAMERASKIN", "Ādiņa");
 define("LAN_PLUG_XPNSLD_TURN_ON_GLOBAL_DEBUG", "Ieslēgt globālo e107 atkļūdošanu");
 define("LAN_PLUG_XPNSLD_SEE", "Skatīt vairāk iekš datnes");
+define("LAN_PLUG_XPNSLD_SEE_MORE", "Skatīt vairāk iekš");
+define("LAN_PLUG_XPNSLD_CONTENT_TEMPLATES", "par HTML šabloniem");
+
