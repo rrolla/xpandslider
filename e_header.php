@@ -32,10 +32,10 @@ if (USER_AREA) // prevents inclusion of JS/CSS/meta in the admin area.
 {   e107::css('xpandslider', 'css/xpnsld.css');
 
     if ($scriptLoad != 'cdn') {
-        e107::css('core', 'camera-slideshow/css/camera.css');
-        e107::js('core', 'camera-slideshow/scripts/jquery.easing.1.3.js');
-        e107::js('core', 'camera-slideshow/scripts/camera.min.js');
-        e107::js('core', 'camera-slideshow/scripts/jquery.mobile.customized.min.js');
+        e107::css('core', '../lib/camera-slideshow/css/camera.css');
+        e107::js('core', '../lib/camera-slideshow/scripts/jquery.easing.1.3.js');
+        e107::js('core', '../lib/camera-slideshow/scripts/camera.min.js');
+        //e107::js('core', '../lib/camera-slideshow/scripts/jquery.mobile.customized.min.js');
     }
 
     if ($scriptLoad == 'cdn') {
@@ -45,6 +45,8 @@ if (USER_AREA) // prevents inclusion of JS/CSS/meta in the admin area.
         e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/Camera/' . $cameraV . '/scripts/camera' . $minLoad . '.js');
         e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/jquery-easing/' . $jqueryV . '/jquery.easing' . $minLoad . '.js');
         e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/jquery-easing/' . $jqueryV . '/jquery.easing.compatibility' . $minLoad . '.js');
-        e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/Camera/' . $cameraV . '/scripts/jquery.mobile.customized.min.js');
+        e107::js('xpandslider', 'js/jquery.mobile.customized.min.js', 'jquery');
+        //e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/Camera/' . $cameraV . '/scripts/jquery.mobile.customized.min.js');
+        //e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile' . $minLoad . '.js', 'jquery', 0);
     }
 }
