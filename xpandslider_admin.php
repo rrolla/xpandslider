@@ -44,18 +44,15 @@ gallery_load_prettyphoto();
 e107::lan(XPNSLD_NAME, 'global'); // Loads e_PLUGIN."xpandslider/languages/English/global.php (if English is the current language)
 e107::lan(XPNSLD_NAME, 'admin');
 
-//e107::css('core', 'elfinder/css/elfinder.min.css');
-//e107::css('core', 'elfinder/css/theme.css');
-e107::css('url', '//cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.18/css/elfinder.full.min.css');
-e107::css('url', '//cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.18/css/theme.min.css');
-
 e107::css('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/css/brutusin-json-forms.min.css');
 e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms.min.js');
 //e107::js('url', '//cdn.jsdelivr.net/brutusin.json-forms/1.4.0/js/brutusin-json-forms-bootstrap.min.js');
 
+e107::css('core', '../lib/elFinder/css/elfinder.min.css');
+e107::css('core', '../lib/elFinder/css/theme.css');
+e107::js('core', '../lib/elFinder/js/elfinder.min.js');
+
 e107::css(XPNSLD_NAME, 'css/xpnsld.css');
-//e107::js('core', 'elfinder/js/elfinder.min.js');
-e107::js('url', '//cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.18/js/elfinder.full.min.js');
 e107::js(XPNSLD_NAME, 'js/xpnsld-admin-js.js', 'jquery');
 
 new plugin_xpandslider_admin;
