@@ -3,8 +3,8 @@
 error_reporting(E_ALL); // Set E_ALL for debuging
 // elFinder autoload
 
-require_once("../conf.php");
-require dirname(dirname(dirname(__DIR__))) . '/e107_web/js/elfinder/php/autoload.php';
+require_once('../conf.php');
+require_once('../assets/elfinder/php/autoload.php');
 // ===============================================
 
 /**

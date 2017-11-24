@@ -1,0 +1,8 @@
+{
+  "name": "xpandslider",
+  "private": true,
+  "dependencies": {
+    "elfinder": "2.1.18-src",
+    "camera-slideshow": "*"
+  }
+}
