@@ -1,10 +1,25 @@
 <?php
 
-error_reporting(E_ALL); // Set E_ALL for debuging
-// elFinder autoload
+$debug = false;
 
+if ($debug) {
+    error_reporting(E_ALL); // Set E_ALL for debuging
+    ini_set('display_errors', 1);
+}
+
+ini_set('max_file_uploads', 50);   // allow uploading up to 50 files at once
+// needed for case insensitive search to work, due to broken UTF-8 support in PHP
+ini_set('mbstring.internal_encoding', 'UTF-8');
+ini_set('mbstring.func_overload', 2);
+
+/*
 require_once('../conf.php');
 require_once('../assets/elfinder/php/autoload.php');
+*/
+
+require_once("../conf.php");
+// elFinder autoload
+require dirname(dirname(dirname(__DIR__))) . '/e107_web/lib/elfinder/php/autoload.php';
 // ===============================================
 
 /**
