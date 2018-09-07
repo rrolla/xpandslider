@@ -13,8 +13,7 @@
 
 require_once("conf.php");
 
-if (!defined('e107_INIT'))
-{
+if (!defined('e107_INIT')) {
     require_once("../../class2.php");
 }
 
@@ -24,8 +23,7 @@ if (!defined('XPNSLD_DEBUG')) {
     define('XPNSLD_DEBUG', $xpandSliderPrefs['xpnsld_debug']);
 }
 
-if (XPNSLD_DEBUG == true)
-{
+if (XPNSLD_DEBUG == true) {
     ini_set('display_errors', 'On');
     error_reporting(E_ALL | E_STRICT);
 }

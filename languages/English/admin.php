@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * e107 website system
+ *
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
+
 //admin menu
 define("LAN_PLUG_XPNSLD_SLIDES", "Slides");
 define("LAN_PLUG_XPNSLD_LIST", "List");

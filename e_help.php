@@ -1,18 +1,16 @@
 <?php
+
 /*
  * e107 website system
  *
- * Copyright (C) 2008-2009 e107 Inc (e107.org)
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
  *
- *
- * $Source: e107_plugins/xpanslider/e_help.php,v $
- * $Revision$
- * $Date$
- * $Author$
- */
+*/
 
 if (!defined('e107_INIT')) {
     exit;
@@ -20,8 +18,7 @@ if (!defined('e107_INIT')) {
 
 require_once("conf.php");
 
-if (!defined('e107_INIT'))
-{
+if (!defined('e107_INIT')) {
     require_once("../../class2.php");
 }
 
@@ -62,7 +59,7 @@ $text .= '<div class="xpnsld">
 	      <div class="footer-cr">
 	        <div class="footer-cr-text">
 	          <a
-                    href="//projects.urdt.lv/web/' . e_CURRENT_PLUGIN . '?bannerclient=' . $siteurl . '"
+                    href="http://projects.urdt.lv/web/' . e_CURRENT_PLUGIN . '?bannerclient=' . $siteurl . '"
                     target="_blank"
                     title="' . $crTitle . '">
 	            <p>© ' . XPNSLD_START_YEAR . ' - ' . XPNSLD_LAST_YEAR . ' ' . XPNSLD_URDT_VERSION . '</p>

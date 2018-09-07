@@ -1,7 +1,18 @@
 <?php
 
-if(!defined('e107_INIT'))
-{
+/*
+ * e107 website system
+ *
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
+
+if (!defined('e107_INIT')) {
     exit;
 }
 
@@ -16,7 +27,7 @@ class xpandslider_shortcodes extends e_shortcode
         $xpandSliderPrefs = e107::getPlugPref(XPNSLD_NAME); // get plugin prefs
 
         $slides = $sql->retrieve(XPNSLD_DB, '*', 'visibility IN (' . USERCLASS_LIST . ') ORDER BY position ASC', true);
-        
+
         if (varset($xpandSliderPrefs['xpnsld_camerarandom'])) {
             shuffle($slides);
         }
@@ -27,13 +38,13 @@ class xpandslider_shortcodes extends e_shortcode
     {
         $tp = e107::getParser();
         $template = e107::getTemplate(XPNSLD_NAME);
-
         $text = $tp->parseTemplate($template['start']);
-        foreach($this->var['slides'] as $slide)
-	{
+
+        foreach ($this->var['slides'] as $slide) {
             $this->addVars(compact('slide')); // set current slide
             $text .= $tp->parseTemplate($template['item']);
-	}
+        }
+
         $text .= $tp->parseTemplate($template['end']);
 
         return $text;
@@ -66,12 +77,13 @@ class xpandslider_shortcodes extends e_shortcode
 
         return $tp->replaceConstants($this->var['slide']['image']);
     }
-    
+
     function sc_xpandslider_thumb($parm = '')
     {
         $tp = e107::getParser();
 
-        $thumb = e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR . XPNSLD_IMG_DIR . $this->var['slide']['image'] .'&w=300&h=300';
+        $thumb = e_BASE .'thumb.php?src=' . e_PLUGIN_ABS . XPNSLD_DIR;
+        $thumb .= XPNSLD_IMG_DIR . $this->var['slide']['image'] .'&w=300&h=300';
 
         return $tp->replaceConstants($thumb);
     }
@@ -79,14 +91,10 @@ class xpandslider_shortcodes extends e_shortcode
     function sc_xpandslider_data($parm = '')
     {
         $dataArray = json_decode(html_entity_decode($this->var['slide']['extra']));
-        //echo '<pre>';
-        //print_r($dataArray);
-        //exit;
 
         $htmlData = '';
         foreach ($dataArray as $attr => $val) {
             $htmlData .= 'data-' . $attr . '="' . $val . '" ';
-            //$htmlData .= 'data-video="hide"';
         }
 
         $tp = e107::getParser();

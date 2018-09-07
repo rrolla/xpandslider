@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * e107 website system
+ *
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
+
 //admin menu
 define("LAN_PLUG_XPNSLD_SLIDES", "Slaidiem");
 define("LAN_PLUG_XPNSLD_LIST", "Saraksts");
@@ -36,4 +48,3 @@ define("LAN_PLUG_XPNSLD_TURN_ON_GLOBAL_DEBUG", "Ieslēgt globālo e107 atkļūdo
 define("LAN_PLUG_XPNSLD_SEE", "Skatīt vairāk iekš datnes");
 define("LAN_PLUG_XPNSLD_SEE_MORE", "Skatīt vairāk iekš");
 define("LAN_PLUG_XPNSLD_CONTENT_TEMPLATES", "par HTML šabloniem");
-

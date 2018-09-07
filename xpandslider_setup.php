@@ -3,18 +3,18 @@
 /*
  * e107 website system
  *
- * Copyright (C) 2008-2013 e107 Inc (e107.org)
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  *
- * Custom install/uninstall/update routines for xpanslider plugin
- * *
- */
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
 
 require_once("conf.php");
 
-if (!defined('e107_INIT'))
-{
+if (!defined('e107_INIT')) {
     require_once("../../class2.php");
 }
 
@@ -26,15 +26,6 @@ if (!defined('XPNSLD_DEBUG')) {
 
 class xpandslider_setup {
 
-    function install_pre($var)
-    {
-        //print_a($var);
-        // echo "custom install 'pre' function<br /><br />";
-    }
-
-    /**
-     * For inserting default database content during install after table has been created by the xpandslider_sql.php file.
-     */
     function install_post($var)
     {
         $sql = e107::getDb();
@@ -121,25 +112,6 @@ class xpandslider_setup {
         }
     }
 
-    function uninstall_options()
-    {
-        /*
-          $listoptions = array(0 => 'option 1', 1 => 'option 2');
-
-          $options = array();
-          $options['mypref'] = array(
-          'label' => 'Custom Uninstall Label',
-          'preview' => 'Preview Area',
-          'helpText' => 'Custom Help Text',
-          'itemList' => $listoptions,
-          'itemDefault' => 1
-          );
-
-          return $options;
-         *
-         */
-    }
-
     function uninstall_post($var)
     {
         $mes = e107::getMessage();
@@ -152,10 +124,5 @@ class xpandslider_setup {
                 $mes->add('Error remove ' . $file . ' from tinymce4/snippets/', E_MESSAGE_ERROR);
             }
         }
-    }
-
-    function upgrade_post($var)
-    {
-        // $sql = e107::getDb();
     }
 }

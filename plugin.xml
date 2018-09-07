@@ -2,11 +2,11 @@
 <e107Plugin
   name="xpandSlider"
   lan="xpandSlider"
-  version="1.2.4"
-  date="2017-07-28"
+  version="2.0.0"
+  date="2018-09-07"
   compatibility="2.0"
   installRequired="true">
-    <author name="Rolla" url="http://urdt.lv"/>
+    <author name="Rolla" url="https://urdt.lv"/>
     <summary>Perfect responsive slider for e107 CMS</summary>
     <description lan="LAN_PLUG_XPNSLD_DESC">Perfect responsive image, HTML slider for e107 CMS</description>
     <category>content</category>
@@ -20,7 +20,7 @@
     <adminLinks>
       <link
         url='xpandslider_admin.php'
-        description='Konfigurēt spraudni'
+        description='Configure plugin'
         icon='images/xpn_sld_32.png'
         iconSmall='images/xpn_sld_16.png'
         primary='true'>LAN_PLUG_XPNSLD_CONFIGURE</link>

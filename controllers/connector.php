@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * e107 website system
+ *
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
+
 $debug = false;
 
 if ($debug) {
@@ -11,11 +23,6 @@ ini_set('max_file_uploads', 50);   // allow uploading up to 50 files at once
 // needed for case insensitive search to work, due to broken UTF-8 support in PHP
 ini_set('mbstring.internal_encoding', 'UTF-8');
 ini_set('mbstring.func_overload', 2);
-
-/*
-require_once('../conf.php');
-require_once('../assets/elfinder/php/autoload.php');
-*/
 
 require_once("../conf.php");
 // elFinder autoload
@@ -44,10 +51,7 @@ $opts = [
         [
             'driver' => 'LocalFileSystem',
             'path' => '../'. XPNSLD_IMG_DIR,
-            //'startPath'  => '../files/test/',
-            'URL' => './',
-            // 'treeDeep'   => 3,
-            'alias' => 'Slides',
+            'alias' => 'slides',
             'mimeDetect' => 'internal',
             'tmbURL' => XPNSLD_IMG_DIR . '.tmb',
             'tmbSize' => 300,
@@ -74,9 +78,8 @@ $opts = [
                     'write' => false,
                     'hidden' => false,
                     'locked' => true
-		],
+                ],
             ]
-        // 'uploadDeny' => array('application', 'text/xml')
         ]
     ]
 ];

@@ -1,7 +1,4 @@
 {
   "directory" : "assets",
-  "cwd": "./",
-   "scripts": {
-        "postinstall": "bin/bower_postinstall"
-   }
+  "cwd": "./"
 }

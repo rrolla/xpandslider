@@ -1,6 +1,19 @@
 <?php
 
-class xpandslider_slides extends e_admin_ui {
+/*
+ * e107 website system
+ *
+ * Copyright (C) 2008-2018 e107 Inc (e107.org)
+ * Released under the terms and conditions of the
+ * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
+ *
+ * xpandSlider plugin - Perfect responsive image, HTML slider for e107 CMS
+ * Author: rolla <raitis.rolis@gmail.com>
+ *
+*/
+
+class xpandslider_slides extends e_admin_ui
+{
 
     // required
     protected $pluginTitle = XPNSLD_TITLE;
@@ -143,7 +156,7 @@ class xpandslider_slides extends e_admin_ui {
             'type' => 'boolean',
             'tab' => 0,
         ],
-         * 
+         *
          */
         'xpnsld_camerarandom' => [
             'title' => LAN_PLUG_XPNSLD_CAMERARANDOM,
@@ -168,29 +181,15 @@ class xpandslider_slides extends e_admin_ui {
         ],
     ];
 
-    // optional
     public function init()
     {
         $sql = e107::getDB();
         $sql->db_Set_Charset("utf8");
     }
-
-    public function testPage()
-    {
-    }
-
-    public function beforeUpdate($new_data, $old_data, $id)
-    {
-        /*
-        echo '<pre>';
-        print_r($old_data);
-        print_r($new_data);
-        exit;
-         */
-    }
 }
 
-class xpandslider_slides_form_ui extends e_admin_form_ui {
+class xpandslider_slides_form_ui extends e_admin_form_ui
+{
 
     public function image($curVal, $mode)
     {
@@ -224,11 +223,11 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                 return '<span title="' . $curVal .'">' . $ago . '</span>';
             case 'write':
                 $html .=  $this->text('created', $curVal ? $curVal : date("Y-m-d H:i:s"), 255, ["id" => "created", "class" => "tbox hide"]);
-                
+
                 if ($curVal) {
                     $e107Date = e107::getDate();
                     $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
-                
+
                     $html .= '<span title="' . $curVal .'">' . $ago . '</span>';
                 }
 
@@ -247,11 +246,11 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
                 return '<span title="' . $curVal .'">' . $ago . '</span>';
             case 'write':
                 $html .=  $this->text('updated', date("Y-m-d H:i:s"), 255, ["id" => "updated", "class" => "tbox hide"]);
-                
+
                 if ($curVal) {
                     $e107Date = e107::getDate();
                     $ago = $e107Date->computeLapse($e107Date->decodeDateTime($curVal, 'datetime', 'ymd'), time(), false, false, 'short');
-                
+
                     $html .= '<span title="' . $curVal .'">' . $ago . '</span>';
                 }
 
@@ -261,6 +260,9 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
 
     public function extra($curVal, $mode)
     {
+        if (empty($curVal)) {
+            $curVal = '{}';
+        }
         // see http://pixedelic.com/plugins/camera/ data attributes
         $allowed = [
             'alignment',
@@ -277,19 +279,6 @@ class xpandslider_slides_form_ui extends e_admin_form_ui {
             'transPeriod',
             'video',
         ];
-
-        //print_r($curVal);
-
-        //$data = ['alignment' => 'topCenter'];
-
-        //$safe_string_to_store = json_encode($curVal);
-        //echo $safe_string_to_store;
-
-        //$array_restored_from_db = json_decode($curVal);
-
-        //print_r($array_restored_from_db);
-        //echo $array_restored_from_db;
-        //exit;
 
         switch ($mode)
         {
