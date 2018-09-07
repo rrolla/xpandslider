@@ -1,6 +1,10 @@
 xpandSlider - Perfect responsive image, HTML slider for e107 CMS
 ===========
 
+### Demo gallery https://work.urdt.lv/apps/gallery/s/TBBEZT2Bnpitxk7
+### Demo installed http://projects.urdt.lv/web/xpandslider
+
+
 #### Installation prerequisites
 Must be installed git and bower
 
