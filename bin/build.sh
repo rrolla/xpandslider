@@ -6,20 +6,16 @@ cd "$(dirname "$0")"
 cd ../
 yarn
 
-mkdir tmpassets
 rm -rvf assets
+mkdir tmpassets
 cp -rv node_modules/@bower_components/. tmpassets/
 rm -rvf node_modules
 mv tmpassets assets
 
-# cleaning
-rm -rvf assets/camera-slideshow/images/slides
-rm -rvf assets/camera-slideshow/images/slides\ copy
-rm assets/elfinder/js/elfinder.full.js
-rm -rvf images/psd
-
 mkdir build
-zip -r build/xpandslider-$1.zip . -x ".git/*" ".idea/*" "build/*"
+zip -r build/xpandslider-$1.zip . -x \
+".git/*" ".idea/*" "build/*" "assets/camera-slideshow/images/slides\ copy/*" "images/psd/*" \
+"assets/camera-slideshow/images/slides/*" "assets/elfinder/js/elfinder.full.js"
 
 echo ""
 echo "###############################################"
