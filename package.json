@@ -4,7 +4,9 @@
     "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'assets', 'junction') } catch (e) { }\""
   },
   "dependencies": {
-    "@bower_components/camera-slideshow": "pixedelic/Camera#*"
+    "@bower_components/camera-slideshow": "pixedelic/Camera#*",
+    "@bower_components/brutusin-json-forms": "brutusin/json-forms#v1.4.0",
+    "@bower_components/elfinder": "Studio-42/elFinder#2.1.42"
   },
   "engines": {
     "yarn": ">= 1.0.0"

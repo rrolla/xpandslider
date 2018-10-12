@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@bower_components/brutusin-json-forms@brutusin/json-forms#v1.4.0":
+  version "0.0.0"
+  resolved "https://codeload.github.com/brutusin/json-forms/tar.gz/22a9a9b6d81e315db093d0ee6b945bda0dbe3c62"
+
 "@bower_components/camera-slideshow@pixedelic/Camera#*":
   version "0.0.0"
   resolved "https://codeload.github.com/pixedelic/Camera/tar.gz/6e76de15a86488e8d7a98aba041443e036e38e6b"
+
+"@bower_components/elfinder@Studio-42/elFinder#2.1.42":
+  version "2.1.42"
+  resolved "https://codeload.github.com/Studio-42/elFinder/tar.gz/83f4b3102bafd4393cb51ff41af4edd34f8132f4"
