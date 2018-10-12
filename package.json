@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'assets', 'junction') } catch (e) { }\""
+  },
+  "dependencies": {
+    "@bower_components/camera-slideshow": "pixedelic/Camera#*"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  }
+}

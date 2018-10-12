@@ -1,7 +1,0 @@
-{
-  "name": "xpandslider",
-  "private": true,
-  "dependencies": {
-    "camera-slideshow": "*"
-  }
-}

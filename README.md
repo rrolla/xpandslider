@@ -7,7 +7,7 @@ xpandSlider - Perfect responsive image, HTML slider for e107 CMS
 ---
 
 #### Installation prerequisites
-* Must be installed `git` and `bower`
+* Must be installed `git` and `yarn`
 * All commands should be executed from `installation root`
 
 ---
